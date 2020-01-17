@@ -9,6 +9,13 @@ header {
 
 h1 {
 	font-size: 70px;
+	margin-bottom: 1rem;
+}
+
+.storetest {
+	display: block;
+	width: 60%;
+	margin: 0 auto;
 }
 
 .container {
@@ -16,14 +23,14 @@ h1 {
 	flex-direction: column;
 	justify-content: center;
 	margin: 0 auto;
-	padding: 4rem;
+	padding: 3rem;
 	text-align: center;
 	// border: 1px solid red;
 	max-width: 620px;
 }
 
-.section {
-	margin: 0 auto;
+section {
+	// margin: 0 auto;
 	text-align: center;
 }
 
@@ -40,4 +47,45 @@ h1 {
 	justify-content: space-between;
 	border: 1px solid black;
 	padding: 1rem;
+	margin-bottom: .5rem;
+}
+
+.add-bookmark-view {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+#add-new-bookmark-form {
+	display: flex;
+	flex-direction: column;
+	max-width: 300px;
+	width: 100%;
+}
+
+.new-bookmark-label {
+	margin-bottom: 1rem;
+}
+
+.new-bookmark-input {
+	margin-bottom: 2rem;
+}
+
+.bookmark.expanded {
+	flex-direction: column;
+}
+
+.expanded-title-rating {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+.link-button {
+	margin-bottom: 1rem;
+}
+
+.description {
+	margin-bottom: 1rem;
 }
