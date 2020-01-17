@@ -7,9 +7,17 @@ header {
 	margin-bottom: 2rem;
 }
 
+section {
+	text-align: center;
+}
+
 h1 {
 	font-size: 70px;
 	margin-bottom: 1rem;
+}
+
+input[placeholder] {
+	text-align: center;
 }
 
 .storetest {
@@ -29,16 +37,12 @@ h1 {
 	max-width: 620px;
 }
 
-section {
-	// margin: 0 auto;
-	text-align: center;
-}
-
 .initial-view-buttons {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	margin-bottom: 2rem;
+	max-width: 400px;
+	margin: 0 auto 2rem;
 }
 
 .bookmark {
@@ -47,8 +51,11 @@ section {
 	justify-content: space-between;
 	border: 1px solid black;
 	padding: 1rem;
-	margin-bottom: .5rem;
+	margin: 0 auto .5rem;
+	max-width: 400px;
 }
+
+/* ADD NEW BOOKMARK VIEW */
 
 .add-bookmark-view {
 	display: flex;
@@ -73,6 +80,8 @@ section {
 
 .bookmark.expanded {
 	flex-direction: column;
+	max-width: 400px;
+	margin: 0 auto 1rem;
 }
 
 .expanded-title-rating {
@@ -87,5 +96,22 @@ section {
 }
 
 .description {
+	margin-bottom: 1rem;
+}
+
+.add-new-bookmark-button {
+	margin-bottom: 2rem;
+}
+
+.return-button {
+	margin-bottom: 1rem;
+}
+
+/* ERROR SELECTORS */
+
+.error-message {
+	font-size: 1.5rem;
+	color: red;
+	font-style: italic;
 	margin-bottom: 1rem;
 }

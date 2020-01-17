@@ -6,25 +6,55 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="styles.css">
-  <title>Document</title>
+  <title>My Bookmarks</title>
 </head>
 <body>
 
+<!-- * ERROR VIEW -->
+
+<!-- <div class="container">
+
+  <header>
+    <h1>My Bookmarks</h1>
+  </header>
+
+  <section class="error-view">
+
+    <p class="error-message">There's been an error!</p>
+    <button class="error-return">Return to bookmarks list</button>
+
+  </section>
+
+  </div> -->
+
+  <!-- <code>
+    const store = {
+      bookmarks: [...],
+      adding: false,
+      error: true,
+      filter: 0
+    };
+  </code>
+
+
 <!-- * ADD NEW BOOKMARK VIEW-->
 
-  <div class="container">
+  <!-- <div class="container">
 
     <header>
       <h1>My Bookmarks</h1>
     </header>
 
     <section class="add-bookmark-view">
+
       <form id="add-new-bookmark-form">
+        <button class="return-button" type="reset">Return to bookmarks list</button>
+
         <label class="new-bookmark-label" for="new-bookmark-title">Add new bookmark title:</label>
-        <input class="new-bookmark-input" type="text" name="title" id="new-bookmark-title" required>
+        <input class="new-bookmark-input" type="text" name="title" placeholder="New bookmark" id="new-bookmark-title" required>
 
         <label class="new-bookmark-label" for="new-bookmark-url"> Enter bookmark url: </label>
-        <input class="new-bookmark-input" type="text" name="url" id="new-bookmark-url">
+        <input class="new-bookmark-input" type="text" name="url" placeholder="https://www.newbookmark.com" id="new-bookmark-url">
 
         <label class="new-bookmark-label" for="new-bookmark-rating">Add bookmark rating:</label>
         <span>
@@ -40,12 +70,20 @@
         <label class="new-bookmark-label" for="new-bookmark-description"> Add description:</label>
         <textarea cols="20" rows="5" class="new-bookmark-input" type="text" name="description" id="new-bookmark-description"></textarea>
 
-        <input type="submit" >
+        <input class="add-new-bookmark-button" type="submit">
 
       </form>
 
-
     </section>
+
+    <code>
+      const store = {
+        bookmarks: [...],
+        adding: true,
+        error: null,
+        filter: 0
+      };
+    </code> -->
   
 
   <!-- * EXPANDED VIEW -->
@@ -89,12 +127,31 @@
       </ul>
     </section>
   
-  </div> -->
+  </div>  -->
+
+  <!-- <code>
+    const store = {
+      bookmarks: [
+        {
+          id: '7ddr',
+          title: 'Title 11',
+          rating: 5,
+          url: 'http://www.title11.com',
+          description: 'lorem ipsum dolor',
+          expanded: true
+        }
+        ...
+      ],
+      adding: false,
+      error: null,
+      filter: 0
+    };
+  </code>
 
 
 <!-- * INITIAL VIEW -->
 
-<!-- <div class="container">
+<div class="container">
 
   <header>
     <h1>My Bookmarks</h1>
@@ -151,7 +208,7 @@
     adding: false,
     error: null,
     filter: 0
-  }; -->
+  };
   
 </code>
 
