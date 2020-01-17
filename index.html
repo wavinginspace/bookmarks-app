@@ -9,20 +9,45 @@
   <title>Document</title>
 </head>
 <body>
+
+
+
+  
+<!-- INITIAL VIEW -->
+
 <div class="container">
 
   <header>
-    <h1>Bookmarks</h1>
+    <h1>My Bookmarks</h1>
   </header>
 
-  <section>
-    <p class="testparagraph">bookmarks</p>
-
+  <section class="initial-view-buttons">
+    <button class="add-new-button">Add New Bookmark</button>
+    <form id="bookmarks-form"></form>
+    <label for="filter-dropdown"></label>
+      <select name="ratings" id="filter-dropdown">
+        <option value="0">Filter By Rating</option>
+        <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+        <option value="4">&#9733; &#9733; &#9733; &#9733; or more</option>
+        <option value="3">&#9733; &#9733; &#9733; or more</option>
+        <option value="2">&#9733; &#9733; or more</option>
+        <option value="1">&#9733; or more</option>
+      </select>
+    </form>
   </section>
 
+  <section class="bookmarks-list-section">
+    <ul class="bookmarks-list">
+      <li class="bookmark" data-item-id="" tabindex="0">
+        <span class="bookmark-title">test</span>
+        <span class="bookmark-rating">rating 5/5</span>
+      </li>
+    </ul>
+  </section>
 
 </div>
 
+<!-- END INITIAL VIEW-->
 
 
 

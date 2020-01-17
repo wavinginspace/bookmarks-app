@@ -12,8 +12,32 @@ h1 {
 }
 
 .container {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	margin: 0 auto;
 	padding: 4rem;
 	text-align: center;
+	// border: 1px solid red;
+	max-width: 620px;
+}
+
+.section {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.initial-view-buttons {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
+.bookmark {
+	background-color: lightblue;
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid black;
+	padding: 1rem;
 }
