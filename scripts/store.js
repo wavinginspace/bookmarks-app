@@ -8,7 +8,7 @@ const bookmarkList = [
     rating: 5,
     url: 'http://www.title11.com',
     description: 'lorem ipsum dolor',
-    expanded: true
+    expanded: false
   }
 ];
 let adding = true;

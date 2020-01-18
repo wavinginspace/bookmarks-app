@@ -2,7 +2,11 @@ import store from './store.js';
 import api from './api.js';
 
 
-const generateBookmarkItem = function (item) {
+const generateBookmarkItem = function (item, rating) {
+  if (item.rating < rating ) {
+    return '';
+  }
+
   if (item.expanded) {
     return `<li class="bookmark expanded" data-item-id="${item.id}" tabindex="0">
   <div class="title-rating-expanded">
@@ -21,8 +25,8 @@ const generateBookmarkItem = function (item) {
 };
 
 const generateBookmarkListString = function (bookmarks) {
-  const items = bookmarks.map((item) => generateBookmarkItem(item));
-  
+  const items = bookmarks.map((item) => generateBookmarkItem(item, item.rating));
+
   return items.join('');
 };
 
@@ -149,29 +153,63 @@ const render = function () {
   }
 };
 
+//TODO THIS FUNCTION ISN'T FINISHED
 
-// const handleNewItemSubmit = function () {
-//   $('#add-new-bookmark-form').submit(function (event) {
-//     event.preventDefault();
-//     const newBookmarkTitle = $('.new-bookmark-input').val();
-//     $('.new-bookmark-input').val('');
-//     api.createItem(newBookmarkTitle)
-//       .then((newItem) => {
-//         store.addItem(newItem);
-//         render();
-//       })
-//       .catch((error) => {
-//         store.setError(error.message);
-//         renderError();
-//       });
-//   });
-// };
+const handleAddNewBookmark = function () {
+  $('body').on('submit', '#add-new-bookmark-form', function(event){
+    event.preventDefault();
+    let newBookmarkTitle = $('#new-bookmark-title').val();
+    let newBookmarkUrl = $('#new-bookmark-url').val();
+    let newBookmarkRating = $('#new-bookmark-rating').val();
+    let newBookmarkDescription = $('#new-bookmark-description').val();
+
+    let newBookmark = {
+      title: newBookmarkTitle,
+      url: newBookmarkUrl,
+      rating: newBookmarkRating,
+      description: newBookmarkDescription
+    };
+
+    $('.new-bookmark-input').val('');
+
+    api.createBookmark(newBookmark)
+      .then((newItem) => {
+        store.addItem(newItem);
+        render();
+      })
+      .catch((error) => {
+        store.setError(error.message);
+        renderError();
+      });
+    store.adding = false;
+  });
+  render();
+};
+
+// const body = $('body');
+
+// document.body.addEventListener('click', function() {
+//   console.log('I was clicked');
+// });
+
+// $('body').on('click', '.return-button', function() {
+//   console.log('I was clicked');
+// });
+
+const handleReturnToList = function () {
+  $('body').on('click', '.return-button', function() {
+    console.log('I was clicked');
+    store.adding = false;
+    render();
+  });
+};
 
 
 const bindEventListeners = function() {
   handleCloseError();
+  handleAddNewBookmark();
+  handleReturnToList();
 };
-
 
 export default {
   render,
