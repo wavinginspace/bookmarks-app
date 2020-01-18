@@ -153,9 +153,38 @@ const render = function () {
   }
 };
 
-//TODO THIS FUNCTION ISN'T FINISHED
+// TODO -- LIST VIEW HANDLERS
 
-const handleAddNewBookmark = function () {
+const getItemIdFromElement = function (item) {
+  return $(item)
+    .closest('.bookmark')
+    .data('item-id');
+};
+
+const handleAddNewBookmark = function() {
+  $('body').on('click', '.add-new-button', function() {
+    store.adding = true;
+    render();
+  });
+};
+
+
+const handleToggleExpandedView = function() {
+  $('body').on('click', '.bookmark', function(event) {
+    // console.log(event);
+    const itemId = getItemIdFromElement(event.target);
+    store.bookmarkList.forEach(item => {
+      if (item.id === itemId) {
+        item.expanded = !item.expanded;
+        render();
+      }
+    });
+  });
+};
+
+//TODO -- ADDING VIEW HANDLERS
+
+const handleSubmitNewBookmark = function () {
   $('body').on('submit', '#add-new-bookmark-form', function(event){
     event.preventDefault();
     let newBookmarkTitle = $('#new-bookmark-title').val();
@@ -186,16 +215,6 @@ const handleAddNewBookmark = function () {
   render();
 };
 
-// const body = $('body');
-
-// document.body.addEventListener('click', function() {
-//   console.log('I was clicked');
-// });
-
-// $('body').on('click', '.return-button', function() {
-//   console.log('I was clicked');
-// });
-
 const handleReturnToList = function () {
   $('body').on('click', '.return-button', function() {
     console.log('I was clicked');
@@ -207,8 +226,11 @@ const handleReturnToList = function () {
 
 const bindEventListeners = function() {
   handleCloseError();
-  handleAddNewBookmark();
+  handleSubmitNewBookmark();
   handleReturnToList();
+  handleToggleExpandedView();
+  getItemIdFromElement();
+  handleAddNewBookmark();
 };
 
 export default {
