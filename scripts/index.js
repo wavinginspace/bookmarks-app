@@ -5,7 +5,18 @@ import bookmarks from './bookmarks.js';
 
 api.testFunction();
 
+const main = function () {
+  // api.getItems()
+  //   .then((items) => {
+  //     items.forEach((item) => store.addItem(item));
+  //     bookmarks.render();
+  //   });
 
+  bookmarks.bindEventListeners();
+  bookmarks.render();
+};
+
+$(main);
 
 
 

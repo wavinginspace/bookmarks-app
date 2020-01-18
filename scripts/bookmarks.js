@@ -1,17 +1,136 @@
 import store from './store.js';
 import api from './api.js';
 
-export default {
-  
+
+const generateBookmarkItem = function (item) {
+  return `<li class="bookmark" data-item-id="${item.id}" tabindex="0">
+      <span class="bookmark-title">${item.title}</span>
+      <span class="bookmark-rating">rating ${item.rating}/5</span>
+    </li>`;
+};
+
+const generateBookmarkListString = function (bookmarks) {
+  const items = bookmarks.map((item) => generateBookmarkItem(item));
+  return items.join('');
+};
+
+const generateError = function (message) {
+  return `
+  <div class="container">
+
+  <header>
+    <h1>My Bookmarks</h1>
+  </header>
+
+  <section class="error-view">
+
+    <p class="error-message">There's been an error: ${message}</p>
+    <button class="error-return">Return to bookmarks list</button>
+
+  </section>
+
+  </div>`;
+};
+
+const generateInitialView = function() {
+  const bookmarkListString = generateBookmarkListString(store.bookmarkList);
+
+  return `<div class="container">
+
+  <header>
+    <h1>My Bookmarks</h1>
+  </header>
+
+  <section class="initial-view-buttons">
+    <button class="add-new-button">Add New Bookmark</button>
+    <form id="bookmarks-form"></form>
+    <label for="filter-dropdown"></label>
+      <select name="ratings" id="filter-dropdown">
+        <option value="0">Filter By Rating</option>
+        <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+        <option value="4">&#9733; &#9733; &#9733; &#9733; or more</option>
+        <option value="3">&#9733; &#9733; &#9733; or more</option>
+        <option value="2">&#9733; &#9733; or more</option>
+        <option value="1">&#9733; or more</option>
+      </select>
+    </form>
+  </section>
+
+  <section class="bookmarks-list-section">
+    <ul class="bookmarks-list">
+    ${bookmarkListString}
+    </ul>
+  </section>
+
+</div>
+`;
+};
+
+//TODO check this against shopping list renderError if it's not working as is. might need to set error-container div in html so that it can be cleared with handleCloseError.
+// ? maybe okay now ?  
+
+const renderError = function (message) {
+  if (store.error) {
+    const el = generateError(message);
+    $('body').html(el);
+  }
+};
+
+const handleCloseError = function () {
+  $('.container').on('click', '.error-return', () => {
+    store.setError(null);
+    renderError();
+  });
+};
+
+const render = function () {
+  renderError();
+
+  if (store.adding === false) {
+    // const bookmarkListString = generateBookmarkListString(store.bookmarkList);
+    let initialView = generateInitialView();
+    // TODO line 90 might need to be done from event handler
+    // $('.bookmarks-list').append(bookmarkListString);
+    $('body').html(initialView);
+  }
+
+  // TODO stopped here 1/17
+
+
+  // $('body').html(bookmarkListString);
 };
 
 
-// const generateBookmarkItem = function (item) {
-//   let itemTitle = `<span class="shopping-item shopping-item__checked">${item.name}</span>`;
-//   if (!item.checked) {
-//     itemTitle = `
-//       <form class="js-edit-item">
-//         <input class="shopping-item" type="text" value="${item.name}" required />
-//       </form>
-//     `;
-//   }
+// const handleNewItemSubmit = function () {
+//   $('#add-new-bookmark-form').submit(function (event) {
+//     event.preventDefault();
+//     const newBookmarkTitle = $('.new-bookmark-input').val();
+//     $('.new-bookmark-input').val('');
+//     api.createItem(newBookmarkTitle)
+//       .then((newItem) => {
+//         store.addItem(newItem);
+//         render();
+//       })
+//       .catch((error) => {
+//         store.setError(error.message);
+//         renderError();
+//       });
+//   });
+// };
+
+
+const bindEventListeners = function() {
+
+};
+
+
+export default {
+  render,
+  bindEventListeners
+};
+
+
+
+
+
+
