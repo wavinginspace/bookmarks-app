@@ -2,7 +2,7 @@ import store from './store.js';
 import api from './api.js';
 
 
-const generateBookmarkItem = function (item, ratingFilter) {
+const generateBookmarkItem = function (item) {
   if (item.expanded) {
     return `<li class="bookmark expanded" data-item-id="${item.id}" tabindex="0">
   <div class="title-rating-expanded">
@@ -12,10 +12,8 @@ const generateBookmarkItem = function (item, ratingFilter) {
   <p>Description: ${item.description}</p>
   <a href = "${item.url}" target = "_blank">${item.url}</a>
   <button class="delete-bookmark">Delete Bookmark</button>
-  
 </li>`;
   }
-
   return `<li class="bookmark" data-item-id="${item.id}" tabindex="0">
       <span class="bookmark-title">${item.title}</span>
       <span class="bookmark-rating">rating ${item.rating}/5</span>
@@ -79,7 +77,45 @@ const generateInitialView = function() {
 `;
 };
 
-// const generate 
+const generateAddBookmarkView = function() {
+  return `<div class="container">
+
+<header>
+  <h1>My Bookmarks</h1>
+</header>
+
+<section class="add-bookmark-view">
+
+  <form id="add-new-bookmark-form" autocomplete="off">
+
+    <label class="new-bookmark-label" for="new-bookmark-title">Add new bookmark title:</label>
+    <input class="new-bookmark-input" type="text" name="title" placeholder="New bookmark" id="new-bookmark-title" required>
+
+    <label class="new-bookmark-label" for="new-bookmark-url"> Enter bookmark url: </label>
+    <input class="new-bookmark-input" type="text" name="url" placeholder="https://www.newbookmark.com" id="new-bookmark-url">
+
+    <label class="new-bookmark-label" for="new-bookmark-rating">Add bookmark rating:</label>
+    <span>
+    <select class="new-bookmark-rating" name="add-rating" id="new-bookmark-rating">
+    <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+    <option value="4">&#9733; &#9733; &#9733; &#9733;</option>
+    <option value="3">&#9733; &#9733; &#9733;</option>
+    <option value="2">&#9733; &#9733;</option>
+    <option value="1">&#9733;</option>
+    </select>
+  </span>
+
+    <label class="new-bookmark-label" for="new-bookmark-description"> Add description:</label>
+    <textarea cols="20" rows="5" class="new-bookmark-input" type="text" name="description" id="new-bookmark-description"></textarea>
+
+    <input class="add-new-bookmark-button form-button" type="submit">
+
+    <button class="return-button form-button" type="reset">Return to bookmarks list</button>
+
+  </form>
+
+</section>`;
+}; 
 
 //TODO check this against shopping list renderError if it's not working as is. might need to set error-container div in html so that it can be cleared with handleCloseError.
 // ? maybe okay now ?  
@@ -104,9 +140,10 @@ const render = function () {
   if (store.adding === false) {
     let initialView = generateInitialView();
     $('body').html(initialView);
+  } else {
+    let addBookmarkView = generateAddBookmarkView();
+    $('body').html(addBookmarkView);
   }
-
-
 
   // TODO stopped here 1/17
 

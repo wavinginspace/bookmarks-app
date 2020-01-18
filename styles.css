@@ -84,8 +84,9 @@ input[placeholder] {
 #add-new-bookmark-form {
 	display: flex;
 	flex-direction: column;
-	max-width: 300px;
+	max-width: 400px;
 	width: 100%;
+	// justify-content: center;
 }
 
 .new-bookmark-label {
@@ -93,6 +94,13 @@ input[placeholder] {
 }
 
 .new-bookmark-input {
+	margin: 0 auto 2rem;
+	min-width: 200px;
+	max-width: 300px;
+	width: 100%;
+}
+
+.new-bookmark-rating {
 	margin-bottom: 2rem;
 }
 
@@ -117,12 +125,9 @@ input[placeholder] {
 	margin-bottom: 1rem;
 }
 
-.add-new-bookmark-button {
-	margin-bottom: 2rem;
-}
-
-.return-button {
-	margin-bottom: 1rem;
+.form-button {
+	max-width: 100px;
+	margin: 0 auto 2rem;
 }
 
 /* ERROR SELECTORS */

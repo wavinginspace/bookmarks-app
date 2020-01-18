@@ -11,7 +11,7 @@ const bookmarkList = [
     expanded: true
   }
 ];
-let adding = false;
+let adding = true;
 let error = null;
 let filter = 0;
 
