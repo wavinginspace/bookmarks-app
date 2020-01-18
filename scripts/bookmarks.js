@@ -22,6 +22,7 @@ const generateBookmarkItem = function (item) {
 
 const generateBookmarkListString = function (bookmarks) {
   const items = bookmarks.map((item) => generateBookmarkItem(item));
+  
   return items.join('');
 };
 
@@ -134,6 +135,8 @@ const handleCloseError = function () {
   });
 };
 
+// * RENDER FUNCTION
+
 const render = function () {
   renderError();
 
@@ -144,11 +147,6 @@ const render = function () {
     let addBookmarkView = generateAddBookmarkView();
     $('body').html(addBookmarkView);
   }
-
-  // TODO stopped here 1/17
-
-
-  // $('body').html(bookmarkListString);
 };
 
 
@@ -171,7 +169,7 @@ const render = function () {
 
 
 const bindEventListeners = function() {
-
+  handleCloseError();
 };
 
 
