@@ -55,6 +55,24 @@ input[placeholder] {
 	max-width: 400px;
 }
 
+.expanded {
+	max-width: 400px;
+	max-height: 300px;
+	height: 200px;
+}
+
+.title-rating-expanded {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 1rem;
+}
+
+.delete-bookmark {
+	display: block;
+	max-width: 100px;
+	margin: 0 auto;
+}
+
 /* ADD NEW BOOKMARK VIEW */
 
 .add-bookmark-view {

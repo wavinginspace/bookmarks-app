@@ -2,7 +2,20 @@ import store from './store.js';
 import api from './api.js';
 
 
-const generateBookmarkItem = function (item) {
+const generateBookmarkItem = function (item, ratingFilter) {
+  if (item.expanded) {
+    return `<li class="bookmark expanded" data-item-id="${item.id}" tabindex="0">
+  <div class="title-rating-expanded">
+  <span class="bookmark-title-expanded">${item.title}</span>
+  <span class="bookmark-rating-expanded">Rated ${item.rating}/5</span>
+  </div>
+  <p>Description: ${item.description}</p>
+  <a href = "${item.url}" target = "_blank">${item.url}</a>
+  <button class="delete-bookmark">Delete Bookmark</button>
+  
+</li>`;
+  }
+
   return `<li class="bookmark" data-item-id="${item.id}" tabindex="0">
       <span class="bookmark-title">${item.title}</span>
       <span class="bookmark-rating">rating ${item.rating}/5</span>
@@ -66,6 +79,8 @@ const generateInitialView = function() {
 `;
 };
 
+// const generate 
+
 //TODO check this against shopping list renderError if it's not working as is. might need to set error-container div in html so that it can be cleared with handleCloseError.
 // ? maybe okay now ?  
 
@@ -87,12 +102,11 @@ const render = function () {
   renderError();
 
   if (store.adding === false) {
-    // const bookmarkListString = generateBookmarkListString(store.bookmarkList);
     let initialView = generateInitialView();
-    // TODO line 90 might need to be done from event handler
-    // $('.bookmarks-list').append(bookmarkListString);
     $('body').html(initialView);
   }
+
+
 
   // TODO stopped here 1/17
 
