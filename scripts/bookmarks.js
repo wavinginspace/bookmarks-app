@@ -17,7 +17,7 @@ const generateBookmarkItem = function (item, filterValue) {
   </div>
   <p>Description: ${item.desc}</p>
   <a href = "${item.url}" target = "_blank">${item.url}</a>
-  <button class="delete-bookmark">Delete Bookmark</button>
+  <button class="delete-bookmark">Delete</button>
 </li>`;
   } else {
     return `<li class="bookmark" data-item-id="${item.id}" tabindex="0">
@@ -35,10 +35,10 @@ const generateBookmarkListString = function (bookmarks) {
 
 const generateError = function (message) {
   return `
-  <div class="container">
+  <main class="container">
 
   <header>
-    <h1>My Bookmarks</h1>
+    <h1 class="animated bounceInDown delay-1s">My Bookmarks</h1>
   </header>
 
   <section class="error-view">
@@ -48,16 +48,16 @@ const generateError = function (message) {
 
   </section>
 
-  </div>`;
+  </main>`;
 };
 
 const generateInitialView = function() {
   const bookmarkListString = generateBookmarkListString(store.bookmarkList);
 
-  return `<div class="container">
+  return `<main class="container">
 
   <header>
-    <h1>My Bookmarks</h1>
+    <h1 class="animated bounceInDown delay-.5s">My Bookmarks</h1>
   </header>
 
   <section class="initial-view-buttons">
@@ -81,12 +81,12 @@ const generateInitialView = function() {
     </ul>
   </section>
 
-</div>
+</main>
 `;
 };
 
 const generateAddBookmarkView = function() {
-  return `<div class="container">
+  return `<main class="container">
 
 <header>
   <h1>My Bookmarks</h1>
@@ -122,7 +122,8 @@ const generateAddBookmarkView = function() {
 
   </form>
 
-</section>`;
+</section>
+</main>`;
 }; 
 
 //TODO check this against shopping list renderError if it's not working as is. might need to set error-container div in html so that it can be cleared with handleCloseError.
@@ -178,9 +179,21 @@ const handleAddNewBookmark = function() {
 const handleRatingsSelection = function () {
   $('body').on('change', '#filter-dropdown', function (event) {
     event.preventDefault();
+    // let selected = $('#filter-dropdown');
+    // let index = event.target.selectedIndex;
+    
+    // $(selected).options
+    console.log(event);
+    console.log(event.target);
+    console.log(event.currentTarget);
+    // console.log(this);
+    // $('#filter-dropdown').html($('#filter-dropdown').val());
     const filterValue = parseInt($('#filter-dropdown').val());
     store.filter = filterValue;
     store.bookmarkList.forEach(item => item.expanded = false);
+    // ! THIS IS WORKING BUT  GIVING AN TYPEERROR 
+    let dropdown = document.getElementById('filter-dropdown');
+    dropdown.textContent = dropdown.value();
     render();
   });  
 };
