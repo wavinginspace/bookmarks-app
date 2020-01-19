@@ -10,8 +10,9 @@ const findById = function (id) {
   return this.bookmarkList.find(currentItem => currentItem.id === id);
 };
 
-const addItem = function (item) {
-  this.bookmarkList.push(item);
+const addItem = function (bookmark) {
+  bookmark.expanded = false;
+  this.bookmarkList.push(bookmark);
 };
 
 const findAndDelete = function (id) {

@@ -103,11 +103,11 @@ const generateAddBookmarkView = function() {
     <label class="new-bookmark-label" for="new-bookmark-rating">Add bookmark rating:</label>
     <span>
     <select class="new-bookmark-rating" name="add-rating" id="new-bookmark-rating">
-    <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
-    <option value="4">&#9733; &#9733; &#9733; &#9733;</option>
-    <option value="3">&#9733; &#9733; &#9733;</option>
-    <option value="2">&#9733; &#9733;</option>
-    <option value="1">&#9733;</option>
+    <option value="5">5</option>
+    <option value="4">4</option>
+    <option value="3">3</option>
+    <option value="2">2</option>
+    <option value="1">1</option>
     </select>
   </span>
 
@@ -215,6 +215,7 @@ const handleToggleExpandedView = function() {
 
 const handleSubmitNewBookmark = function () {
   $('body').on('submit', '#add-new-bookmark-form', function(event){
+    console.log('I was clicked');
     event.preventDefault();
     let newBookmarkTitle = $('#new-bookmark-title').val();
     let newBookmarkUrl = $('#new-bookmark-url').val();
@@ -224,24 +225,24 @@ const handleSubmitNewBookmark = function () {
     let newBookmark = {
       title: newBookmarkTitle,
       url: newBookmarkUrl,
-      rating: newBookmarkRating,
-      desc: newBookmarkDescription
+      desc: newBookmarkDescription,
+      rating: newBookmarkRating
     };
 
+    console.log(newBookmark);
     $('.new-bookmark-input').val('');
 
     api.createBookmark(newBookmark)
       .then((newItem) => {
         store.addItem(newItem);
+        store.adding = false;
         render();
       })
       .catch((error) => {
         store.setError(error.message);
         renderError();
       });
-    store.adding = false;
   });
-  render();
 };
 
 const handleReturnToList = function () {

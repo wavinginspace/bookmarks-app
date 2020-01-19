@@ -41,17 +41,17 @@ const listApiFetch = function (...args) {
 };
 
 const getItems = function () {
-  return listApiFetch(`${BASE_URL}`);
+  return listApiFetch(BASE_URL);
 };
 
-const createBookmark = function (name) {
-  const newItem = JSON.stringify({ name });
-  return listApiFetch(`${BASE_URL}`, {
+const createBookmark = function (bookmark) {
+  let newBookmark = JSON.stringify(bookmark);
+  return listApiFetch(BASE_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: newItem
+    body: newBookmark
   });
 };
 
