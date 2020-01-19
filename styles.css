@@ -1,6 +1,6 @@
 body {
 	font-size: 16px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Roboto Mono', monospace;
 	background-color: rgb(255, 220, 220);
 }
 
@@ -13,12 +13,21 @@ section {
 }
 
 h1 {
-	font-size: 70px;
+	font-family: 'Alata', sans-serif;
+	font-size: 64px;
 	margin-bottom: 1rem;
 }
 
 input[placeholder] {
 	text-align: center;
+}
+
+button {
+	cursor: pointer;
+}
+
+li {
+	cursor: pointer;
 }
 
 .storetest {
@@ -50,10 +59,14 @@ input[placeholder] {
 	background-color: lightblue;
 	display: flex;
 	justify-content: space-between;
-	border: 1px solid black;
+	border: 1px solid #222;
 	padding: 1rem;
 	margin: 0 auto .5rem;
 	max-width: 400px;
+}
+
+.bookmark-title {
+	font-weight: 500;
 }
 
 .expanded {
@@ -72,6 +85,27 @@ input[placeholder] {
 	display: block;
 	max-width: 100px;
 	margin: 0 auto;
+}
+
+.add-new-button {
+	display: inline-block;
+	border: 1px solid #222;
+	font-family: 'Roboto Mono', monospace;
+	padding: 1rem 2rem;
+	margin: 0;
+	text-decoration: none;
+	background: #2fffbd;
+	color: #222;
+	font-size: 1rem;
+	font-weight: 500;
+	text-align: center;
+	transition: transform .5s ease;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.add-new-button:hover {
+	transform: scale(1.1);
 }
 
 /* ADD NEW BOOKMARK VIEW */

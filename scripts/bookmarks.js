@@ -1,6 +1,8 @@
 import store from './store.js';
 import api from './api.js';
 
+// TODO -- CONSIDER SPLITTING THIS FILE
+
 
 const generateBookmarkItem = function (item, filterValue) {
   if (item.rating < filterValue ) {
