@@ -25,8 +25,8 @@ const generateBookmarkItem = function (item, filterValue) {
   }
 };
 
-const generateBookmarkListString = function (bookmarks, filterValue) {
-  const items = bookmarks.map((item) => generateBookmarkItem(item, filterValue));
+const generateBookmarkListString = function (bookmarks) {
+  const items = bookmarks.map((item) => generateBookmarkItem(item, store.filter));
 
   return items.join('');
 };
@@ -152,7 +152,7 @@ const render = function () {
     let initialView = generateInitialView();
     $('body').html(initialView);
   } else {
-    let addBookmarkView = generateAddBookmarkView(bookmarks, filterValue);
+    let addBookmarkView = generateAddBookmarkView();
     $('body').html('');
     $('body').html(addBookmarkView);
   }
