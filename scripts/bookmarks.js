@@ -2,8 +2,8 @@ import store from './store.js';
 import api from './api.js';
 
 
-const generateBookmarkItem = function (item, rating) {
-  if (item.rating < rating ) {
+const generateBookmarkItem = function (item, filterValue) {
+  if (item.rating < filterValue ) {
     return '';
   }
 
@@ -17,16 +17,16 @@ const generateBookmarkItem = function (item, rating) {
   <a href = "${item.url}" target = "_blank">${item.url}</a>
   <button class="delete-bookmark">Delete Bookmark</button>
 </li>`;
-  }
-
-  return `<li class="bookmark" data-item-id="${item.id}" tabindex="0">
+  } else {
+    return `<li class="bookmark" data-item-id="${item.id}" tabindex="0">
       <span class="bookmark-title">${item.title}</span>
       <span class="bookmark-rating">rating ${item.rating}/5</span>
     </li>`;
+  }
 };
 
-const generateBookmarkListString = function (bookmarks) {
-  const items = bookmarks.map((item) => generateBookmarkItem(item, item.rating));
+const generateBookmarkListString = function (bookmarks, filterValue) {
+  const items = bookmarks.map((item) => generateBookmarkItem(item, filterValue));
 
   return items.join('');
 };
@@ -145,12 +145,15 @@ const handleCloseError = function () {
 
 const render = function () {
   renderError();
+  let filterValue = store.filter;
+  let bookmarks = store.bookmarkList;
 
   if (store.adding === false) {
     let initialView = generateInitialView();
     $('body').html(initialView);
   } else {
-    let addBookmarkView = generateAddBookmarkView();
+    let addBookmarkView = generateAddBookmarkView(bookmarks, filterValue);
+    $('body').html('');
     $('body').html(addBookmarkView);
   }
 };
@@ -176,7 +179,7 @@ const handleRatingsSelection = function () {
     const filterValue = parseInt($('#filter-dropdown').val());
     store.filter = filterValue;
     store.bookmarkList.forEach(item => item.expanded = false);
-    render(filterValue);
+    render();
   });  
 };
 
