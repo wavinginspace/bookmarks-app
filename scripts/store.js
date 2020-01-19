@@ -42,7 +42,7 @@ const findAndUpdate = function (id, newData) {
   Object.assign(currentItem, newData);
 };
 
-const setError = function (error) {
+const setError = function(error) {
   this.error = error;
 };
 

@@ -126,7 +126,7 @@ const generateAddBookmarkView = function() {
 // ? maybe okay now ?  
 
 const renderError = function (message) {
-  if (store.error) {
+  if (store.error === true) {
     const el = generateError(message);
     $('body').html(el);
   }
@@ -134,6 +134,7 @@ const renderError = function (message) {
 
 const handleCloseError = function () {
   $('.container').on('click', '.error-return', () => {
+    console.log('I was clicked');
     store.setError(null);
     renderError();
   });
@@ -166,6 +167,10 @@ const handleAddNewBookmark = function() {
     store.adding = true;
     render();
   });
+};
+
+const handleDeleteBookmark = function() {
+  
 };
 
 
@@ -223,6 +228,15 @@ const handleReturnToList = function () {
   });
 };
 
+// TODO -- ERROR VIEW HANDLER
+
+const errorReturnToList = function() {
+  $('body').on('click', '.error-return', function() {
+    store.error = null;
+    render();
+  } );
+};
+
 
 const bindEventListeners = function() {
   handleCloseError();
@@ -231,6 +245,7 @@ const bindEventListeners = function() {
   handleToggleExpandedView();
   getItemIdFromElement();
   handleAddNewBookmark();
+  errorReturnToList();
 };
 
 export default {
