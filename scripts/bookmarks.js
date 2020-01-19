@@ -18,6 +18,7 @@ const generateBookmarkItem = function (item, rating) {
   <button class="delete-bookmark">Delete Bookmark</button>
 </li>`;
   }
+
   return `<li class="bookmark" data-item-id="${item.id}" tabindex="0">
       <span class="bookmark-title">${item.title}</span>
       <span class="bookmark-rating">rating ${item.rating}/5</span>
@@ -169,10 +170,33 @@ const handleAddNewBookmark = function() {
   });
 };
 
-const handleDeleteBookmark = function() {
-  
+const handleRatingsSelection = function () {
+  $('body').on('change', '#filter-dropdown', function (event) {
+    event.preventDefault();
+    const filterValue = parseInt($('#filter-dropdown').val());
+    store.filter = filterValue;
+    store.bookmarkList.forEach(item => item.expanded = false);
+    render(filterValue);
+  });  
 };
 
+const handleDeleteBookmark = function() {
+  $('body').on('click', '.delete-bookmark', function(event) {
+    console.log('I was clicked');
+    console.log(event.currentTarget);
+    const id = getItemIdFromElement(event.currentTarget);
+    api.deleteBookmark(id)
+      .then(() => {
+        store.findAndDelete(id);
+        render();
+      })
+      .catch((error) => {
+        console.log(error);
+        store.setError(error.message);
+        renderError();
+      });
+  });
+};
 
 const handleToggleExpandedView = function() {
   $('body').on('click', '.bookmark', function(event) {
@@ -201,7 +225,7 @@ const handleSubmitNewBookmark = function () {
       title: newBookmarkTitle,
       url: newBookmarkUrl,
       rating: newBookmarkRating,
-      description: newBookmarkDescription
+      desc: newBookmarkDescription
     };
 
     $('.new-bookmark-input').val('');
@@ -237,15 +261,16 @@ const errorReturnToList = function() {
   } );
 };
 
-
 const bindEventListeners = function() {
   handleCloseError();
   handleSubmitNewBookmark();
+  handleAddNewBookmark();
+  handleDeleteBookmark();
   handleReturnToList();
   handleToggleExpandedView();
   getItemIdFromElement();
-  handleAddNewBookmark();
   errorReturnToList();
+  handleRatingsSelection();
 };
 
 export default {

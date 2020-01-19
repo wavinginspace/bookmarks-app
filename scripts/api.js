@@ -1,7 +1,7 @@
 import store from './store.js';
 import bookmarks from './bookmarks.js';
 
-const BASE_URL = 'https://thinkful-list-api.herokuapp.com/paulbaisley/items';
+const BASE_URL = 'https://thinkful-list-api.herokuapp.com/paulbaisley/bookmarks/';
 
 // ! BELOW COPIEDFROM SHOPPING LIST
 
@@ -55,19 +55,18 @@ const createBookmark = function (name) {
   });
 };
 
-const deleteItem = function (id) {
-  return listApiFetch(BASE_URL + '/items/' + id, {
+const deleteBookmark = function (id) {
+  return listApiFetch(BASE_URL + id, {
     method: 'DELETE'
   });
 };
 
 // ! ABOVE COPIED FROM SHOPPING LIST
 
-
 export default {
   BASE_URL,
   listApiFetch,
   getItems,
   createBookmark,
-  deleteItem
+  deleteBookmark
 };

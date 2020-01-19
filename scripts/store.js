@@ -1,24 +1,7 @@
 import api from './api.js';
 import bookmarks from './bookmarks.js';
 
-const bookmarkList = [
-  {
-    id: '7ddr',
-    title: 'Title 11',
-    rating: 5,
-    url: 'http://www.title11.com',
-    description: 'lorem ipsum dolor',
-    expanded: false
-  },
-  {
-    id: '6ffw',
-    title: 'Title 2',
-    rating: 3,
-    url: 'http://www.title2.com',
-    description: 'dolorum tempore deserunt',
-    expanded: false
-  } 
-];
+const bookmarkList = [];
 let adding = false;
 let error = null;
 let filter = 0;
