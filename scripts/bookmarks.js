@@ -13,7 +13,7 @@ const generateBookmarkItem = function (item, filterValue) {
   <span class="bookmark-title-expanded">${item.title}</span>
   <span class="bookmark-rating-expanded">Rated ${item.rating}/5</span>
   </div>
-  <p>Description: ${item.description}</p>
+  <p>Description: ${item.desc}</p>
   <a href = "${item.url}" target = "_blank">${item.url}</a>
   <button class="delete-bookmark">Delete Bookmark</button>
 </li>`;
