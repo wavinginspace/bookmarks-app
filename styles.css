@@ -58,7 +58,7 @@ a {
 	color: var(--link);
 }
 
-a:hover {
+a:hover, a:focus {
 	text-decoration: underline;
 }
 
@@ -105,7 +105,7 @@ a:hover {
 	background: var(--bookmark);
 }
 
-.bookmark:hover {
+.bookmark:hover, .bookmark:focus {
 	background: var(--bookmark);
 }
 
@@ -190,7 +190,7 @@ text-transform: uppercase;
 	padding: .4rem .8rem;
 }
 
-.delete-bookmark:hover {
+.delete-bookmark:hover, .delete-bookmark:focus {
 	background-color: var(--error);
 	color: var(--delete);
 }
@@ -203,7 +203,7 @@ text-transform: uppercase;
 	transition: background .2s;
 }
 
-.return-button:hover {
+.return-button:hover, .return-button:focus {
 	background: var(--info-full);
 }
 
@@ -213,7 +213,7 @@ text-transform: uppercase;
 	transition: background .2s;
 }
 
-.add-new-button:hover {
+.add-new-button:hover, .add-new-button:focus {
 	background-color: var(--submit-full);
 }
 
@@ -224,7 +224,7 @@ text-transform: uppercase;
 	transition: background .2s;
 }
 
-#filter-dropdown:hover {
+#filter-dropdown:hover, #filter-dropdown:focus {
 	background: var(--info-full);
 }
 
@@ -303,7 +303,7 @@ select {
 	transition: background-color .2s;
 }
 
-.add-new-bookmark-button:hover {
+.add-new-bookmark-button:hover, .add-new-bookmark-button:focus {
 	background: var(--submit-full);
 }
 

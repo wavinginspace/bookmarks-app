@@ -4,8 +4,6 @@ import generators from './generators.js';
 
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/paulbaisley/bookmarks/';
 
-// ! BELOW COPIEDFROM SHOPPING LIST
-
 const listApiFetch = function (...args) {
   // setup var in scope outside of promise chain
   let error;

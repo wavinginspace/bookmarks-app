@@ -4,7 +4,7 @@ import generators from './generators.js';
 
 'use strict';
 
-//TODO - EXTENSION GOALSa
+//TODO - EXTENSION GOALS
 
 //TODO - When deleting a bookmark, briefly flashes unexpanded bookmark
 
@@ -12,12 +12,6 @@ import generators from './generators.js';
 setTimeout(function() {
   store.initialLoad = false;
 }, 300);
-
-// const endAnimationHeader = function() {
-//   $('body').on('click', function() {
-//     store.initialLoad = false;
-//   });
-// };
 
 const renderError = function (message) {
   if (store.error) {
@@ -208,7 +202,7 @@ const bindEventListeners = function() {
 
 export default {
   render,
-  bindEventListeners
+  bindEventListeners 
 };
 
 
