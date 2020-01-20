@@ -5,6 +5,7 @@ const bookmarkList = [];
 let adding = false;
 let error = null;
 let filter = 0;
+let initialLoad = true;
 
 const findById = function (id) {
   return this.bookmarkList.find(currentItem => currentItem.id === id);
@@ -41,5 +42,6 @@ export default {
   addItem,
   findAndDelete,
   findAndUpdate,
-  setError
+  setError,
+  initialLoad
 };
