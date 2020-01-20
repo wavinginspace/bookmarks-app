@@ -1,6 +1,7 @@
 import api from './api.js';
 import store from './store.js';
 import bookmarks from './bookmarks.js';
+import generators from './generators.js';
 
 
 const main = function () {

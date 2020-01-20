@@ -1,5 +1,6 @@
 import store from './store.js';
 import bookmarks from './bookmarks.js';
+import generators from './generators.js';
 
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/paulbaisley/bookmarks/';
 
