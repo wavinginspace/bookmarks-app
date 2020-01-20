@@ -85,7 +85,7 @@ img {
 .bookmark {
 	display: flex;
 	justify-content: space-between;
-	min-width: 350px;
+	min-width: 420px;
 	max-width: 100%;
 	text-align: center;
 	padding: 1rem;
@@ -374,7 +374,9 @@ option:checked {
 
 	.bookmark {
 		padding: .9rem;
-		min-width: 220px;
+		min-width: 180px;
+		max-width: 80%;
+		font-size: 14px;
 	}
 
 	.bookmark-rating {
@@ -434,24 +436,39 @@ option:checked {
 		margin: 0 auto;
 	}
 
-	.rated {
+	.bookmark-rating {
 		display: none;
+	}
+
+	.bookmark-rating-expanded {
+		display: none;
+	}
+
+	.bookmark-title-expanded {
+		font-weight: bold;
+	}
+
+	.title-rating-expanded {
+		display: block;
+	}
+
+	.expanded {
+		height: 160px;
 	}
 }
 
-@media (max-width: 590px) {
+@media (min-width: 540px) and (max-width: 590px) {
 	.add-new-button, #filter-dropdown {
 		padding: .6rem 1.2rem;
 		margin-bottom: 0;
-	}
-
-	.bookmark-rating {
-		display: block;
 	}
 
 	.bookmark-title {
 		text-align: left;
 		margin: 0 auto 0 0;
 	}
-	
+
+	.bookmark {
+		min-width: 350px;
+	}
 }
