@@ -3,7 +3,6 @@ import api from './api.js';
 
 // TODO -- CONSIDER SPLITTING THIS FILE
 
-
 // * removes header animation after page load
 setTimeout(function() {
   store.initialLoad = false;
@@ -14,7 +13,6 @@ const generateBookmarkItem = function (item, filterValue) {
   if (item.rating < filterValue ) {
     return '';
   }
-
 
   // if url title longer than 23 characters, cut off and affix ellipses to save space
   let title = item.title;
@@ -48,10 +46,12 @@ const generateBookmarkItem = function (item, filterValue) {
   }
 };
 
+
 const generateBookmarkListString = function (bookmarks) {
   const items = bookmarks.map((item) => generateBookmarkItem(item, store.filter));
   return items.join('');
 };
+
 
 const generateError = function (message) {
   return `
@@ -70,6 +70,7 @@ const generateError = function (message) {
 
   </main>`;
 };
+
 
 const generateInitialView = function() {
   const bookmarkListString = generateBookmarkListString(store.bookmarkList);
@@ -100,7 +101,6 @@ const generateInitialView = function() {
 `;
 
   if (store.initialLoad) {
-
     return `<main class="container">
 
   <header>

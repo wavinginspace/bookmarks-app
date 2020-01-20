@@ -383,6 +383,7 @@ option:checked {
 @media (min-width: 480px) and (max-width: 540px) {
 	h1 {
 		font-size: 48px;
+		margin-bottom: 0;
 	}
 
 	.add-new-button, #filter-dropdown {
