@@ -95,12 +95,12 @@ const generateInitialView = function() {
   <form id="bookmarks-form"></form>
   <label aria-label="filter by rating" for="filter-dropdown"></label>
   <select name="ratings" id="filter-dropdown">
-  <option value="0">Filter By Rating</option>
-  <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733; or more</option>
-  <option value="4">&#9733; &#9733; &#9733; &#9733; or more</option>
-  <option value="3">&#9733; &#9733; &#9733; or more</option>
-  <option value="2">&#9733; &#9733; or more</option>
-  <option value="1">&#9733; or more</option>
+  <option name="select0" value="0">Filter By Rating</option>
+  <option name="select1" value="5">&#9733; &#9733; &#9733; &#9733; &#9733; or more</option>
+  <option name="select2" value="4">&#9733; &#9733; &#9733; &#9733; or more</option>
+  <option name="select3" value="3">&#9733; &#9733; &#9733; or more</option>
+  <option name="select4" value="2">&#9733; &#9733; or more</option>
+  <option name="select5" value="1">&#9733; or more</option>
   </select>
 </form>
 
@@ -236,21 +236,22 @@ const handleAddNewBookmark = function() {
 const handleRatingsSelection = function () {
   $('body').on('change', '#filter-dropdown', function (event) {
     event.preventDefault();
-    // let selected = $('#filter-dropdown');
-    // let index = event.target.selectedIndex;
-    
-    // $(selected).options
     console.log(event);
-    console.log(event.target);
-    console.log(event.currentTarget);
     // console.log(this);
     // $('#filter-dropdown').html($('#filter-dropdown').val());
     const filterValue = parseInt($('#filter-dropdown').val());
     store.filter = filterValue;
+    console.log(filterValue);
     store.bookmarkList.forEach(item => item.expanded = false);
-    // ! THIS IS ~WORKING BUT GIVING AN TYPE ERROR + doesn't actually filter
+
+    // $('#filter-dropdown').selected = true;
+
+    // $('#filter-dropdown').text('#filter-dropdown option:selected').val();
+    
     // let dropdown = document.getElementById('filter-dropdown');
     // dropdown.textContent = dropdown.value();
+
+    // $('#filter-dropdown').html($('#filter-dropdown').attr('name'));
     render();
   });  
 };
@@ -287,8 +288,6 @@ const handleToggleExpandedView = function() {
 };
 
 //TODO -- ADDING VIEW HANDLERS
-
-// ! returning type error 
 
 const handleUrlInput = function(url) {
   let string = url;
