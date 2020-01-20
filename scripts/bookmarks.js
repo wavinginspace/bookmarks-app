@@ -1,7 +1,15 @@
 import store from './store.js';
 import api from './api.js';
 
+'use strict';
+
 // TODO -- CONSIDER SPLITTING THIS FILE
+
+//TODO - EXTENSION GOALS
+
+//TODO - FILTER DROPDOWN FIX
+
+//TODO - When deleting a bookmark, briefly flashes unexpanded bookmark
 
 // * removes header animation after page load
 setTimeout(function() {
@@ -13,7 +21,6 @@ const generateBookmarkItem = function (item, filterValue) {
   if (item.rating < filterValue ) {
     return '';
   }
-
   // if url title longer than 23 characters, cut off and affix ellipses to save space
   let title = item.title;
   let length = 23;
@@ -27,12 +34,11 @@ const generateBookmarkItem = function (item, filterValue) {
   };
   trimString();
 
-
   if (item.expanded) {
     return `<li class="bookmark expanded" data-item-id="${item.id}" tabindex="0">
   <div class="title-rating-expanded">
   <span class="bookmark-title-expanded">${title}</span>
-  <span class="bookmark-rating-expanded">Rated ${item.rating}/5</span>
+  <span class="bookmark-rating-expanded"><span class="rated">Rated</span> ${item.rating}/5</span>
   </div>
   <p>${item.desc}</p>
   <a href = "${item.url}" target = "_blank">${item.url}</a>
@@ -75,6 +81,15 @@ const generateError = function (message) {
 const generateInitialView = function() {
   const bookmarkListString = generateBookmarkListString(store.bookmarkList);
 
+  let filterMessage = '';
+
+  if (store.filter > 0) {
+    filterMessage = `<p class="filter-message">Bookmarks ranked ${store.filter} or higher: </p>`;
+  } else {
+    filterMessage = '';
+  }
+
+
   let initialBody = `<section class="initial-view-buttons">
   <button class="add-new-button">Add New Bookmark</button>
   <form id="bookmarks-form"></form>
@@ -89,9 +104,12 @@ const generateInitialView = function() {
   </select>
 </form>
 
+
+
 </section>
 
 <section class="bookmarks-list-section">
+${filterMessage}
   <ul class="bookmarks-list">
   ${bookmarkListString}
   </ul>
@@ -230,7 +248,7 @@ const handleRatingsSelection = function () {
     const filterValue = parseInt($('#filter-dropdown').val());
     store.filter = filterValue;
     store.bookmarkList.forEach(item => item.expanded = false);
-    // ! THIS IS WORKING BUT GIVING AN TYPEERROR + doesn't actually filter
+    // ! THIS IS ~WORKING BUT GIVING AN TYPE ERROR + doesn't actually filter
     // let dropdown = document.getElementById('filter-dropdown');
     // dropdown.textContent = dropdown.value();
     render();
@@ -270,23 +288,39 @@ const handleToggleExpandedView = function() {
 
 //TODO -- ADDING VIEW HANDLERS
 
+// ! returning type error 
+
+const handleUrlInput = function(url) {
+  let string = url;
+
+  if (string) {
+    if (!~string.indexOf('http') && ~string.indexOf('www')) {
+      string = 'https://' + string;
+    } else if (!~string.indexOf('http') && !~string.indexOf('www')) {
+      string = 'https://www.' + string;
+    }
+  }
+  return string;
+};
+
 const handleSubmitNewBookmark = function () {
   $('body').on('submit', '#add-new-bookmark-form', function(event){
     console.log('I was clicked');
-    event.preventDefault();
+    event.preventDefault(); 
     let newBookmarkTitle = $('#new-bookmark-title').val();
     let newBookmarkUrl = $('#new-bookmark-url').val();
     let newBookmarkRating = $('#new-bookmark-rating').val();
     let newBookmarkDescription = $('#new-bookmark-description').val();
 
+    let validatedUrl = handleUrlInput(newBookmarkUrl);
+
     let newBookmark = {
       title: newBookmarkTitle,
-      url: newBookmarkUrl,
+      url: validatedUrl, 
       desc: newBookmarkDescription,
       rating: newBookmarkRating
     };
 
-    console.log(newBookmark);
     $('.new-bookmark-input').val('');
 
     api.createBookmark(newBookmark)
@@ -305,6 +339,13 @@ const handleSubmitNewBookmark = function () {
 const handleReturnToList = function () {
   $('body').on('click', '.return-button', function() {
     console.log('I was clicked');
+    store.adding = false;
+    render();
+  });
+};
+
+const handleHeaderReturn = function() {
+  $('body').on('click', 'h1', function() {
     store.adding = false;
     render();
   });
@@ -330,6 +371,8 @@ const bindEventListeners = function() {
   errorReturnToList();
   handleRatingsSelection();
   endAnimationHeader();
+  handleUrlInput();
+  handleHeaderReturn();
 };
 
 export default {
