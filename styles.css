@@ -1,14 +1,14 @@
 :root {
-	--submit-light: #6fffd1;
-	--submit-full: #2fffbd;
-	--info-full: #ffde5b;
-	--info-light: #ffe476;
+	--submit-light: #77ffd4;
+	--submit-full: #25ffba;
+	--info-full: #ffdc4f;
+	--info-light: #ffe26d;
 	--background: #ffdcdc;
 	--bookmark: #cee8ff;
 	--outline: #222;
 	--link: #0000ff;
 	--error: #fa2b2b;
-	--delete: #fff;
+	--delete: #e7f6ff;
 	--placeholder: #bdb1ff;
 }
 
@@ -94,10 +94,19 @@ a:hover {
 	text-align: center;
 	padding: 1rem;
 	margin: 0 auto .5rem;
-	background-color: var(--bookmark);
+	background-color: var(--delete);
 	border: 2px solid var(--outline);
 	border-radius: 5px;
 	position: relative;
+	transition: background .2s;
+}
+
+.bookmark.expanded {
+	background: var(--bookmark);
+}
+
+.bookmark:hover {
+	background: var(--bookmark);
 }
 
 .bookmark-rating {
@@ -313,7 +322,6 @@ select {
 	display: block;
 	margin: 0 auto 2rem;
 	background: var(--info-full);
-	overflow: hidden;
 	height: 40px;
 	padding-bottom: 2.2rem;
 }
@@ -322,7 +330,7 @@ select {
 	font-size: 1.2em;
 	text-align: center;
 	padding: 2px;
-	display: inline;
+	display: inline-block;
 	cursor: pointer;
 	border-radius: 5px;
 	margin-right: 8px;
@@ -450,7 +458,7 @@ option:checked {
 	}
 
 	.bookmark-rating-expanded {
-		display: none;
+		display: block;
 	}
 
 	.bookmark-title-expanded {
@@ -458,7 +466,11 @@ option:checked {
 	}
 
 	.title-rating-expanded {
-		display: block;
+		display: flex;
+	}
+
+	.rated {
+		display: none;
 	}
 
 	.expanded {
