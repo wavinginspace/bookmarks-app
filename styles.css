@@ -1,8 +1,22 @@
+:root {
+	--submit-light: #6fffd1;
+	--submit-full: #2fffbd;
+	--info-full: #ffde5b;
+	--info-light: #ffe476;
+	--background: #ffdcdc;
+	--bookmark: #cee8ff;
+	--outline: #222;
+	--link: #0000ff;
+	--error: #fa2b2b;
+	--delete: #fff;
+	--placeholder: #bdb1ff;
+}
+
 body {
 	font-size: 16px;
 	font-family: 'Roboto Mono', monospace;
-	background-color: rgb(255, 220, 220);
-	color: #222;
+	background-color: var(--background);
+	color: var(--outline);
 	font-weight: 500;
 }
 
@@ -41,21 +55,11 @@ li {
 
 a {
 	text-decoration: none;
-	color: blue;
+	color: var(--link);
 }
 
 a:hover {
 	text-decoration: underline;
-}
-
-img {
-	color: black;
-}
-
-.storetest {
-	display: block;
-	width: 60%;
-	margin: 0 auto;
 }
 
 .container {
@@ -90,8 +94,8 @@ img {
 	text-align: center;
 	padding: 1rem;
 	margin: 0 auto .5rem;
-	background-color: rgb(206, 232, 255);
-	border: 2px solid #222;
+	background-color: var(--bookmark);
+	border: 2px solid var(--outline);
 	border-radius: 5px;
 	position: relative;
 }
@@ -153,13 +157,13 @@ text-transform: uppercase;
 .return-button,
 .error-return {
 	display: block;
-	border: 2px solid #222;
+	border: 2px solid var(--outline);
 	font-family: 'Roboto Mono', monospace;
 	border-radius: 5px;
 	padding: .8rem 1rem;
 	margin: 0 auto;
 	text-decoration: none;
-	color: #222;
+	color: var(--outline);
 	font-size: 1rem;
 	font-weight: 500;
 	text-align: center;
@@ -178,8 +182,8 @@ text-transform: uppercase;
 }
 
 .delete-bookmark:hover {
-	background-color: rgb(250, 43, 43);
-	color: white;
+	background-color: var(--error);
+	color: var(--delete);
 }
 
 .return-button {
@@ -191,18 +195,28 @@ text-transform: uppercase;
 }
 
 .return-button:hover {
-	background: rgb(255, 222, 91);
+	background: var(--info-full);
 }
 
 .add-new-button {
-	background: #2fffbd;
+	background: var(--submit-light);
 	margin-right: 1rem;
+	transition: background .2s;
+}
+
+.add-new-button:hover {
+	background-color: var(--submit-full);
 }
 
 #filter-dropdown {
-	background: rgb(255, 222, 91);
+	background: var(--info-light);
 	text-align: center;
 	margin-left: 1rem;
+	transition: background .2s;
+}
+
+#filter-dropdown:hover {
+	background: var(--info-full);
 }
 
 select {
@@ -233,7 +247,7 @@ select {
 	min-width: 200px;
 	max-width: 300px;
 	width: 100%;
-	background: rgb(206, 232, 255);
+	background: var(--bookmark);
 	font-family: 'Roboto Mono', monospace;
 }
 
@@ -250,7 +264,7 @@ select {
 }
 
 ::placeholder {
-	color:rgb(189, 177, 255);
+	color: var(--placeholder);
 }
 
 .bookmark.expanded {
@@ -275,35 +289,30 @@ select {
 }
 
 .add-new-bookmark-button {
-	background: #6fffd1;
+	background: var(--submit-light);
 	margin-bottom: 2rem;
 	transition: background-color .2s;
 }
 
 .add-new-bookmark-button:hover {
-	background: #2fffbd;
+	background: var(--submit-full);
 }
 
-.add-new-bookmark-button:before {
+.add-new-bookmark-button::after {
 	content: " ";
-	position: relative;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left:0;
 	box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.5);
-  opacity: 1; /* hide the hover shadow */
+  opacity: 0; /* hide the hover shadow */
 	transition: all 0.3s ease-in-out;
 }
 
-.add-new-bookmark-button:hover:before {
+.add-new-bookmark-button:hover::after {
 	opacity: 1;
 }
 
 .new-bookmark-rating {
 	display: block;
 	margin: 0 auto 2rem;
-	background: rgb(255, 222, 91);
+	background: var(--info-full);
 	overflow: hidden;
 	height: 40px;
 	padding-bottom: 2.2rem;
@@ -334,7 +343,7 @@ option:checked {
 
 .error-message {
 	font-size: 1.5rem;
-	color: red;
+	color: var(--error);
 	font-style: italic;
 	margin-bottom: 3rem;
 }
