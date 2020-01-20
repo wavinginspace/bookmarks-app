@@ -15,6 +15,8 @@ const generateBookmarkItem = function (item, filterValue) {
     return '';
   }
 
+
+  // if url title longer than 23 characters, cut off and affix ellipses to save space
   let title = item.title;
   let length = 23;
 
@@ -129,7 +131,7 @@ const generateAddBookmarkView = function() {
   <form id="add-new-bookmark-form" autocomplete="off">
 
     <label aria-label="new bookmark title" class="new-bookmark-label" for="new-bookmark-title">Add new bookmark title:</label>
-    <input class="new-bookmark-input" type="text" name="title" placeholder="New bookmark" id="new-bookmark-title" required>
+    <input class="new-bookmark-input" type="text" name="title" placeholder="New bookmark" id="new-bookmark-title">
 
     <label aria-label="new bookmark url" class="new-bookmark-label" for="new-bookmark-url"> Enter bookmark url: </label>
     <input class="new-bookmark-input" type="text" name="url" placeholder="https://www.newbookmark.com" id="new-bookmark-url">
@@ -168,7 +170,7 @@ const endAnimationHeader = function() {
 };
 
 const renderError = function (message) {
-  if (store.error === true) {
+  if (store.error) {
     const el = generateError(message);
     $('body').html(el);
   }
@@ -295,7 +297,7 @@ const handleSubmitNewBookmark = function () {
       })
       .catch((error) => {
         store.setError(error.message);
-        renderError();
+        renderError(store.error);
       });
   });
 };

@@ -13,7 +13,7 @@ const listApiFetch = function (...args) {
       if (!res.ok) {
         // if response is not 2xx, start building error object
         error = { code: res.status };
-
+        
         // if response is not JSON type, place statusText in error object and
         // immediately reject promise
         if (!res.headers.get('content-type').includes('json')) {
@@ -60,8 +60,6 @@ const deleteBookmark = function (id) {
     method: 'DELETE'
   });
 };
-
-// ! ABOVE COPIED FROM SHOPPING LIST
 
 export default {
   BASE_URL,

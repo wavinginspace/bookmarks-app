@@ -144,7 +144,8 @@ text-transform: uppercase;
 .add-new-bookmark-button,
 .new-bookmark-rating,
 .delete-bookmark,
-.return-button {
+.return-button,
+.error-return {
 	display: block;
 	border: 2px solid #222;
 	font-family: 'Roboto Mono', monospace;
@@ -329,7 +330,12 @@ option:checked {
 	font-size: 1.5rem;
 	color: red;
 	font-style: italic;
-	margin-bottom: 1rem;
+	margin-bottom: 3rem;
+}
+
+.error-view {
+	display: flex;
+	flex-direction: column;
 }
 
 @media (max-width: 480px) {
@@ -388,7 +394,6 @@ option:checked {
 		width: 285px;
 		max-width: 100%;
 	}
-
 }
 
 @media (max-width: 540px) {
@@ -408,7 +413,6 @@ option:checked {
 		text-align: center;
 		width: 250px;
 		max-width: 100%;
-
 	}
 
 	.bookmark-rating {
