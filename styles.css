@@ -516,6 +516,10 @@ option:checked {
 	.expanded {
 		height: 160px;
 	}
+
+	textarea {
+		font-size: 16px;
+	}
 }
 
 @media (min-width: 540px) and (max-width: 590px) {
