@@ -151,6 +151,7 @@ a:hover, a:focus {
 
 .bookmark-rating-expanded {
 	display: flex;
+	margin-top: .18rem;
 }
 
 .bookmark-title-expanded {
@@ -275,7 +276,7 @@ select {
 
 .rating-input {
 	background: var(--bookmark);
-	color: var(--outline);
+	color: #222;
 	font-family: 'Roboto Mono', monospace;
 	font-size: 16px;
 	border: none;
@@ -318,7 +319,7 @@ select {
 }
 
 .rated {
-	margin: 2.2px .7rem 0 0;
+	margin: .2rem .7rem 0 0;
 }
 
 .link-button {
