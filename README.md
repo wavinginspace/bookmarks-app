@@ -18,3 +18,5 @@ Completed user stories include:
   
   - User can input url in any format - ie. www.google.com or google.com and it will convert to https://www.google.com
   - Bookmarks with long titles are cut short and affixed with '...' to prevent layout problems.
+
+Live site here: https://thinkful-ei-leopard.github.io/paul-bookmarks-app/
