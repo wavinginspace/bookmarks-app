@@ -53,7 +53,6 @@ const generateBookmarkListString = function (bookmarks) {
   return items.join('');
 };
 
-
 const generateError = function (message) {
   return `
   <main class="container">
@@ -145,7 +144,6 @@ const generateAddBookmarkView = function() {
     <input class="new-bookmark-input" type="text" name="url" placeholder="https://www.newbookmark.com" id="new-bookmark-url" required>
 
     <label aria-label="new-bookmark-rating" class="new-bookmark-label" for="new-bookmark-rating">Add bookmark rating:</label>
-
     <select class="new-bookmark-rating" name="add-rating" id="new-bookmark-rating" multiple required>
     <option value="1">1</option>
     <option value="2">2</option>
