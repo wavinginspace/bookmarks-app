@@ -33,7 +33,7 @@ const generateBookmarkItem = function (item, filterValue) {
   <div class="title-rating-expanded">
   <span class="bookmark-title-expanded">${expandedTitle}</span>
   <div class="bookmark-rating-expanded"><span class="rated">Rated</span> 
-  <form aria-label="edit rating" class="rating-input-form"><input class="rating-input" id="rating-input" type="text" value="${item.rating}/5" name="rating-input" size="1" maxlength="1"</form>
+  <form aria-label="edit rating" class="rating-input-form"><input class="rating-input" id="rating-input" type="text" value="${item.rating}" name="rating-input" size="1" maxlength="1">/5</form>
   </div>
   </div>
   <form class="description-form">
@@ -147,7 +147,7 @@ const generateAddBookmarkView = function() {
     <input class="new-bookmark-input" type="text" name="url" placeholder="https://www.newbookmark.com" id="new-bookmark-url" required>
 
     <label aria-label="new-bookmark-rating" class="new-bookmark-label" for="new-bookmark-rating">Add bookmark rating:</label>
-    <span>
+    
     <select class="new-bookmark-rating" name="add-rating" id="new-bookmark-rating" multiple required>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -155,7 +155,7 @@ const generateAddBookmarkView = function() {
     <option value="4">4</option>
     <option value="5">5</option>
     </select>
-  </span>
+  
 
     <label aria-label="new bookmark description" class="new-bookmark-label" for="new-bookmark-description"> Add description:</label>
     <textarea cols="20" rows="5" class="new-bookmark-input" type="text" name="description" id="new-bookmark-description" required></textarea>
