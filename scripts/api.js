@@ -54,6 +54,17 @@ const createBookmark = function (bookmark) {
   });
 };
 
+const updateBookmark = function (id, updateData) {
+  const newBookmark = JSON.stringify(updateData);
+  return listApiFetch(BASE_URL + id, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: newBookmark
+  });
+};
+
 const deleteBookmark = function (id) {
   return listApiFetch(BASE_URL + id, {
     method: 'DELETE'
@@ -65,5 +76,6 @@ export default {
   listApiFetch,
   getItems,
   createBookmark,
-  deleteBookmark
+  deleteBookmark,
+  updateBookmark
 };

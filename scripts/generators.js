@@ -31,9 +31,11 @@ const generateBookmarkItem = function (item, filterValue) {
   <span class="bookmark-title-expanded">${expandedTitle}</span>
   <span class="bookmark-rating-expanded"><span class="rated">Rated</span> ${item.rating}/5</span>
   </div>
-  <p>${item.desc}</p>
+  <form class="description-form">
+  <input class="description-edit" id="description-edit" type="text" value="${item.desc}">
+  </form>
   <a href = "${item.url}" target = "_blank">${item.url}</a>
-  <button class="delete-bookmark">Delete</button>
+  <button class="delete-bookmark" name="delete-button" >Delete</button>
 </li>`;
   } else {
     return `<li class="bookmark" data-item-id="${item.id}" tabindex="0">
@@ -67,7 +69,6 @@ const generateError = function (message) {
   </main>`;
 };
 
-
 const generateInitialView = function() {
   const bookmarkListString = generateBookmarkListString(store.bookmarkList);
 
@@ -84,7 +85,7 @@ const generateInitialView = function() {
   <form id="bookmarks-form"></form>
   <label aria-label="filter by rating" for="filter-dropdown"></label>
   <select name="ratings" id="filter-dropdown">
-  <option name="select0" value="0">Filter By Rating</option>
+  <option class="filtertop" name="select0" value="0">Filter By Rating</option>
   <option name="select1" value="5">&#9733; &#9733; &#9733; &#9733; &#9733; or more</option>
   <option name="select2" value="4">&#9733; &#9733; &#9733; &#9733; or more</option>
   <option name="select3" value="3">&#9733; &#9733; &#9733; or more</option>

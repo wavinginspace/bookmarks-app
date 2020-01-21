@@ -6,12 +6,10 @@ import generators from './generators.js';
 
 //TODO - EXTENSION GOALS
 
-//TODO - When deleting a bookmark, briefly flashes unexpanded bookmark
-
 // * removes header animation after page load
 setTimeout(function() {
   store.initialLoad = false;
-}, 300);
+}, 200);
 
 const renderError = function (message) {
   if (store.error) {
@@ -104,13 +102,44 @@ const handleDeleteBookmark = function() {
 
 const handleToggleExpandedView = function() {
   $('body').on('click', '.bookmark', function(event) {
-    const itemId = getItemIdFromElement(event.target);
-    store.bookmarkList.forEach(item => {
-      if (item.id === itemId) {
-        item.expanded = !item.expanded;
+
+    // if delete button is clicked, don't toggle expanded, to avoid flicker before it's removed.
+    if (event.target.name === 'delete-button') {
+      return;
+    }
+
+    if (event.target !== $('#description-edit')) {
+      const itemId = getItemIdFromElement(event.target);
+      store.bookmarkList.forEach(item => {
+        if (item.id === itemId) {
+          item.expanded = !item.expanded;
+          render();
+        }
+      });
+    } else {
+      console.log('wat the hell');
+      return;
+    }
+  });
+};
+
+const handleEditDescription = function() {
+  $('.description-form').on('submit', '.description-edit', function() {
+    console.log('hello');
+    event.preventDefault();
+    const id = getItemIdFromElement(event.currentTarget);
+    const itemName = $(event.currentTarget).find('.description-edit').val();
+
+    api.updateBookmark(id, { name: itemName })
+      .then(() => {
+        store.findAndUpdate(id, { name: itemName });
         render();
-      }
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+        store.setError(error.message);
+        renderError();
+      });
   });
 };
 
@@ -198,6 +227,7 @@ const bindEventListeners = function() {
   handleRatingsSelection();
   handleUrlInput();
   handleHeaderReturn();
+  handleEditDescription();
 };
 
 export default {
