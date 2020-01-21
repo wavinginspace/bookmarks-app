@@ -4,13 +4,12 @@ import generators from './generators.js';
 
 'use strict';
 
-
-//TODO - EXTENSION GOALS
-
-// * removes header animation after page load
+// removes header animation after page load
 setTimeout(function() {
   store.initialLoad = false;
 }, 300);
+
+// RENDER/HANDLE ERRORS
 
 const renderError = function (message) {
   if (store.error) {
@@ -26,7 +25,7 @@ const handleCloseError = function () {
   });
 };
 
-// * RENDER FUNCTION
+// RENDER FUNCTION
 
 const render = function () {
 
@@ -42,7 +41,7 @@ const render = function () {
   }
 };
 
-// TODO -- LIST VIEW HANDLERS
+// LIST VIEW HANDLERS
 
 const getItemIdFromElement = function (item) {
   return $(item)
@@ -53,6 +52,7 @@ const getItemIdFromElement = function (item) {
 const handleAddNewBookmark = function() {
   $('body').on('click', '.add-new-button', function() {
     store.adding = true;
+    store.filter = 0;
     render();
   });
 };
@@ -60,27 +60,9 @@ const handleAddNewBookmark = function() {
 const handleRatingsSelection = function () {
   $('body').on('change', '#filter-dropdown', function (event) {
     event.preventDefault();
-    // console.log(event);
-    // console.log(this);
-    // $('#filter-dropdown').html($('#filter-dropdown').val());
     const filterValue = parseInt($('#filter-dropdown').val());
     store.filter = filterValue;
-
-    // let index = $('#filter-dropdown').get(0).selectedIndex;
-    // console.log(index);
-
-    // $('#filter-dropdown').html(event.target.children[index].text);
-
     store.bookmarkList.forEach(item => item.expanded = false);
-
-    // $('#filter-dropdown').selected = true;
-
-    // $('#filter-dropdown').text('#filter-dropdown option:selected').val();
-    
-    // let dropdown = document.getElementById('filter-dropdown');
-    // dropdown.textContent = dropdown.value();
-
-    // $('#filter-dropdown').html($('#filter-dropdown').attr('name'));
     render();
   });  
 };
@@ -104,15 +86,14 @@ const handleDeleteBookmark = function() {
 const handleToggleExpandedView = function() {
   $('body').on('click', '.bookmark', function(event) {
 
-    // if delete button is clicked, don't toggle expanded, to avoid flicker before it's removed.
-    if (event.target.name === 'delete-button') {
+    // if delete button is clicked, don't toggle expanded, to avoid flicker before it's removed. also allow inputs to be selected.
+
+    if (event.target.name === 'delete-button' || 
+        event.target.name === 'description-edit' || 
+        event.target.name === 'rating-input') {
       return;
     }
 
-    if (event.target.name === 'description-edit' || 
-    event.target.name === 'rating-input') {
-      return;
-    }
     const itemId = getItemIdFromElement(event.target);
     store.bookmarkList.forEach(item => {
       if (item.id === itemId) {
@@ -123,20 +104,11 @@ const handleToggleExpandedView = function() {
   });
 };
 
-// const testInput = function() {
-//   $('body').on('click', '.description-edit', function() {
-//     console.log('I was clicked!');
-//   });
-// };
-
 const handleEditDescription = function() {
   $('body').on('change', '.bookmark', function(event) {
-    console.log(event.currentTarget);
-    console.log(event.target);
     event.preventDefault();
     const id = getItemIdFromElement(event.currentTarget);
     const newDescription = $(event.currentTarget).find('.description-edit').val();
-    console.log(newDescription);
 
     api.updateBookmark(id, { desc: newDescription })
       .then(() => {
@@ -168,7 +140,7 @@ const handleEditRating = function() {
   });
 };
 
-//TODO -- ADDING VIEW HANDLERS
+// ADDING VIEW HANDLERS
 
 const handleUrlInput = function(url) {
   let string = url;
@@ -231,7 +203,7 @@ const handleHeaderReturn = function() {
   });
 };
 
-// TODO -- ERROR VIEW HANDLER
+// ERROR VIEW HANDLER
 
 const errorReturnToList = function() {
   $('body').on('click', '.error-return', function() {

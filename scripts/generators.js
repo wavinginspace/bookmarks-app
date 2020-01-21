@@ -2,6 +2,8 @@ import api from './api.js';
 import bookmarks from './bookmarks.js';
 import store from './store.js';
 
+'use strict';
+
 const generateBookmarkItem = function (item, filterValue) {
 
   if (item.rating < filterValue ) {
@@ -77,7 +79,7 @@ const generateInitialView = function() {
 
   let filterMessage = '';
 
-  if (store.filter > 0) {
+  if (store.filter > 0 && store.bookmarkList.length > 0) {
     filterMessage = `<p class="filter-message">Bookmarks ranked ${store.filter} or higher: </p>`;
   } else {
     filterMessage = '';

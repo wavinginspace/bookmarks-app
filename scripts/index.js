@@ -3,6 +3,7 @@ import store from './store.js';
 import bookmarks from './bookmarks.js';
 import generators from './generators.js';
 
+'use strict';
 
 const main = function () {
   api.getItems()
