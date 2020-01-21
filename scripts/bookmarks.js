@@ -109,7 +109,8 @@ const handleToggleExpandedView = function() {
       return;
     }
 
-    if (event.target.name === 'description-edit') {
+    if (event.target.name === 'description-edit' || 
+    event.target.name === 'rating-input') {
       return;
     }
     const itemId = getItemIdFromElement(event.target);
@@ -140,6 +141,24 @@ const handleEditDescription = function() {
     api.updateBookmark(id, { desc: newDescription })
       .then(() => {
         store.findAndUpdate(id, { desc: newDescription });
+        render();
+      })
+      .catch((error) => {
+        store.setError(error.message);
+        renderError(store.error);
+      });
+  });
+};
+
+const handleEditRating = function() {
+  $('body').on('change', '.bookmark', function(event) {
+    event.preventDefault();
+    const id = getItemIdFromElement(event.currentTarget);
+    const newRating = $(event.currentTarget).find('.rating-input').val();
+
+    api.updateBookmark(id, { rating: newRating })
+      .then(() => {
+        store.findAndUpdate(id, { rating: newRating });
         render();
       })
       .catch((error) => {
@@ -234,6 +253,7 @@ const bindEventListeners = function() {
   handleUrlInput();
   handleHeaderReturn();
   handleEditDescription();
+  handleEditRating();
 };
 
 export default {
