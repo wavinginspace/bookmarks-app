@@ -208,6 +208,7 @@ const handleHeaderReturn = function() {
 const errorReturnToList = function() {
   $('body').on('click', '.error-return', function() {
     store.error = null;
+    store.filter = 0;
     render();
   } );
 };
