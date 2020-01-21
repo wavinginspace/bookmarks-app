@@ -142,9 +142,8 @@ const handleEditDescription = function() {
         render();
       })
       .catch((error) => {
-        console.log(error);
         store.setError(error.message);
-        renderError();
+        renderError(store.error);
       });
   });
 };
