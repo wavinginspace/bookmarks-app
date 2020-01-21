@@ -155,7 +155,7 @@ const generateAddBookmarkView = function() {
     <label aria-label="new bookmark description" class="new-bookmark-label" for="new-bookmark-description"> Add description:</label>
     <textarea cols="20" rows="5" class="new-bookmark-input" type="text" name="description" id="new-bookmark-description" required></textarea>
 
-    <input class="add-new-bookmark-button form-button" type="submit">
+    <input class="add-new-bookmark-button form-button" type="submit" value="Submit">
 
     <button class="return-button form-button" type="reset">Return to bookmarks list</button>
 
