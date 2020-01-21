@@ -31,7 +31,7 @@ const generateBookmarkItem = function (item, filterValue) {
   <div class="title-rating-expanded">
   <span class="bookmark-title-expanded">${expandedTitle}</span>
   <div class="bookmark-rating-expanded"><span class="rated">Rated</span> 
-  <form aria-label="edit rating" class="rating-input-form"><input class="rating-input" id="rating-input" type="text" value="${item.rating}" name="rating-input" size="1" maxlength="1">/5</form>
+  <form aria-label="edit rating" class="rating-input-form"><input class="rating-input" id="rating-input" type="text" value="${item.rating}" name="rating-input" size="1" maxlength="1"><label class="rating-input-label" for="rating-input">/5</label></form>
   </div>
   </div>
   <form class="description-form">
@@ -88,7 +88,7 @@ const generateInitialView = function() {
   <form id="bookmarks-form"></form>
   <label aria-label="filter by rating" for="filter-dropdown"></label>
   <select name="ratings" id="filter-dropdown">
-  <option class="filtertop" name="select0" value="0">Filter By Rating</option>
+ <option class="filtertop" name="select0" value="0">Filter By Rating</option>
   <option name="select1" value="5">&#9733; &#9733; &#9733; &#9733; &#9733; or more</option>
   <option name="select2" value="4">&#9733; &#9733; &#9733; &#9733; or more</option>
   <option name="select3" value="3">&#9733; &#9733; &#9733; or more</option>
