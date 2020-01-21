@@ -35,7 +35,7 @@ const generateBookmarkItem = function (item, filterValue) {
   </div>
   </div>
   <form class="description-form">
-  <input aria-label="edit description" class="description-edit" id="description-edit" type="text" value="${item.desc}" name="description-edit">
+  <input aria-label="edit description" class="description-edit" id="description-edit" type="text" value="${item.desc}" name="description-edit" size="40">
   </form>
   <a href = "${item.url}" target = "_blank">${item.url}</a>
   <button class="delete-bookmark" name="delete-button" >Delete</button>
