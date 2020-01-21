@@ -38,6 +38,7 @@ h1 {
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	cursor: pointer;
+	text-align: center;
 }
 
 input[placeholder] {
@@ -64,7 +65,6 @@ textarea {
 
 input[type=text], textarea {
 	display: inline-block;
-	margin-right: 6rem;
 }
 
 a:hover, a:focus {
