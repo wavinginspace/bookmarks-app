@@ -1,5 +1,3 @@
-import api from './api.js';
-import bookmarks from './bookmarks.js';
 import store from './store.js';
 
 'use strict';
@@ -15,7 +13,7 @@ const generateBookmarkItem = function (item, filterValue) {
   let length = 23;
   let expandedLength = 16;
   // if url title longer than 23 characters, cut off and affix ellipses to save space
-  const trimString = function(item) {
+  const trimString = function() {
     if (title.length > length) {
       title = title.substring(0, length) + '...';
     }
@@ -26,7 +24,7 @@ const generateBookmarkItem = function (item, filterValue) {
     }
   };
   //
-  trimString(item);
+  trimString();
 
   if (item.expanded) {
     return `<li class="bookmark expanded" data-item-id="${item.id}" tabindex="0">
