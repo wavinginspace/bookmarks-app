@@ -108,31 +108,37 @@ const handleToggleExpandedView = function() {
       return;
     }
 
-    if (event.target !== $('#description-edit')) {
-      const itemId = getItemIdFromElement(event.target);
-      store.bookmarkList.forEach(item => {
-        if (item.id === itemId) {
-          item.expanded = !item.expanded;
-          render();
-        }
-      });
-    } else {
-      console.log('wat the hell');
+    if (event.target.name === 'description-edit') {
       return;
     }
+    const itemId = getItemIdFromElement(event.target);
+    store.bookmarkList.forEach(item => {
+      if (item.id === itemId) {
+        item.expanded = !item.expanded;
+        render();
+      }
+    });
   });
 };
 
+// const testInput = function() {
+//   $('body').on('click', '.description-edit', function() {
+//     console.log('I was clicked!');
+//   });
+// };
+
 const handleEditDescription = function() {
-  $('.description-form').on('submit', '.description-edit', function() {
-    console.log('hello');
+  $('body').on('change', '.bookmark', function(event) {
+    console.log(event.currentTarget);
+    console.log(event.target);
     event.preventDefault();
     const id = getItemIdFromElement(event.currentTarget);
-    const itemName = $(event.currentTarget).find('.description-edit').val();
+    const newDescription = $(event.currentTarget).find('.description-edit').val();
+    console.log(newDescription);
 
-    api.updateBookmark(id, { name: itemName })
+    api.updateBookmark(id, { desc: newDescription })
       .then(() => {
-        store.findAndUpdate(id, { name: itemName });
+        store.findAndUpdate(id, { desc: newDescription });
         render();
       })
       .catch((error) => {
@@ -228,6 +234,7 @@ const bindEventListeners = function() {
   handleUrlInput();
   handleHeaderReturn();
   handleEditDescription();
+  // testInput();
 };
 
 export default {

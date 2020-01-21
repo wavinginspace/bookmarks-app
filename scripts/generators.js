@@ -32,7 +32,7 @@ const generateBookmarkItem = function (item, filterValue) {
   <span class="bookmark-rating-expanded"><span class="rated">Rated</span> ${item.rating}/5</span>
   </div>
   <form class="description-form">
-  <input class="description-edit" id="description-edit" type="text" value="${item.desc}">
+  <input class="description-edit" id="description-edit" type="text" value="${item.desc}" name="description-edit">
   </form>
   <a href = "${item.url}" target = "_blank">${item.url}</a>
   <button class="delete-bookmark" name="delete-button" >Delete</button>
