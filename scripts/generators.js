@@ -23,13 +23,16 @@ const generateBookmarkItem = function (item, filterValue) {
       expandedTitle = title;
     }
   };
+  //
   trimString(item);
 
   if (item.expanded) {
     return `<li class="bookmark expanded" data-item-id="${item.id}" tabindex="0">
   <div class="title-rating-expanded">
   <span class="bookmark-title-expanded">${expandedTitle}</span>
-  <span class="bookmark-rating-expanded"><span class="rated">Rated</span> ${item.rating}/5</span>
+  <div class="bookmark-rating-expanded"><span class="rated">Rated</span> 
+  <form class="rating-input-form"><input class="rating-input" id="rating-input" type="text" value="${item.rating}" name="rating-input" size="1" maxlength="1"</form>/5
+  </div>
   </div>
   <form class="description-form">
   <input class="description-edit" id="description-edit" type="text" value="${item.desc}" name="description-edit">

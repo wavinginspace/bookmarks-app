@@ -4,12 +4,13 @@ import generators from './generators.js';
 
 'use strict';
 
+
 //TODO - EXTENSION GOALS
 
 // * removes header animation after page load
 setTimeout(function() {
   store.initialLoad = false;
-}, 200);
+}, 300);
 
 const renderError = function (message) {
   if (store.error) {
@@ -233,7 +234,6 @@ const bindEventListeners = function() {
   handleUrlInput();
   handleHeaderReturn();
   handleEditDescription();
-  // testInput();
 };
 
 export default {

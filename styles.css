@@ -141,11 +141,16 @@ a:hover, a:focus {
 	display: flex;
 	justify-content: space-between;
 	padding: 0 1rem;
+	align-items: center;
 }
 
 .bookmark-title-expanded,
 .bookmark-rating-expanded {
 	font-weight: 500;
+}
+
+.bookmark-rating-expanded {
+	display: flex;
 }
 
 .bookmark-title-expanded {
@@ -266,8 +271,21 @@ select {
 	min-width: 200px;
 	max-width: 300px;
 	width: 100%;
+}
+
+.rating-input {
 	background: var(--bookmark);
+	color: var(--outline);
 	font-family: 'Roboto Mono', monospace;
+	font-size: 16px;
+	border: none;
+	font-weight: 500;
+	padding:0;
+	margin: 0 -.4rem 0 0;
+}
+
+.rating-input-form {
+	margin-bottom: .1rem;
 }
 
 #new-bookmark-title,
@@ -297,6 +315,10 @@ select {
 	flex-direction: row;
 	justify-content: space-between;
 	margin-bottom: 1rem;
+}
+
+.rated {
+	margin: 2.2px .7rem 0 0;
 }
 
 .link-button {
@@ -409,6 +431,10 @@ option:checked {
 
 	.bookmark-rating {
 		display: none;
+	}
+
+	.rating-input {
+		font-size: 14px;
 	}
 
 }
