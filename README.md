@@ -1,4 +1,6 @@
-Simple bookmarking app.
+Simple bookmarking app. Allows users to save their favorite sites, rate them and write a brief description. Users can also filter by bookmark rating (1-5). 
+
+Live site here: https://thinkful-ei-leopard.github.io/paul-bookmarks-app/
 
 Completed user stories include: 
 
@@ -18,5 +20,3 @@ Completed user stories include:
   
   - User can input url in any format - ie. www.google.com or google.com and it will convert to https://www.google.com
   - Bookmarks with long titles are cut short and affixed with '...' to prevent layout problems.
-
-Live site here: https://thinkful-ei-leopard.github.io/paul-bookmarks-app/
