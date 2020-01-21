@@ -62,10 +62,9 @@ textarea {
 	font-size: 16px;
 }
 
-input {
-	margin-left: auto;
-	margin-right: auto;
+input[type=text], textarea {
 	display: inline-block;
+	margin-right: 6rem;
 }
 
 a:hover, a:focus {
