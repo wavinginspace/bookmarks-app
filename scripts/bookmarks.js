@@ -7,7 +7,7 @@ import generators from './generators.js';
 // removes header animation after page load
 setTimeout(function() {
   store.initialLoad = false;
-}, 300);
+}, 500);
 
 // RENDER/HANDLE ERRORS
 
