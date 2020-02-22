@@ -1,0 +1,25 @@
+TODOS for future revisions
+
+- select dropdown in add view looks empty on phone
+- description in expanded view cuts off, should wrap. 
+
+- error message on blank description edit flashes quickly.
+  - might need to change event lister to 'input' instead of 'change'
+
+
+// IDEA for using checkboxes instead of <select> element on the add new bookmark form. wasn't quite working. 
+        
+<div class="checkbox-container">
+
+<input class="new-bookmark-rating" type="checkbox" name="rating" id="rating1" value="1">
+<label class="ratinglabel" for="rating1">1</label>
+
+<label class="ratinglabel" for="rating2">2</label>
+<input class="new-bookmark-rating" type="checkbox" name="rating" id="rating2" value="2">
+<label class="ratinglabel" for="rating3">3</label>
+<input class="new-bookmark-rating" type="checkbox" name="rating" id="rating3" value="3">
+<label class="ratinglabel" for="rating4">4</label>
+<input class="new-bookmark-rating" type="checkbox" name="rating" id="rating4" value="4">
+<label class="ratinglabel" for="rating5">5</label>
+<input class="new-bookmark-rating" type="checkbox" name="rating" id="rating5" value="5">
+</div>
