@@ -31,7 +31,8 @@ const generateBookmarkItem = function (item, filterValue) {
   <div class="title-rating-expanded">
   <span class="bookmark-title-expanded">${expandedTitle}</span>
   <div class="bookmark-rating-expanded"><span class="rated">Rated</span> 
-  <form aria-label="edit rating" class="rating-input-form"><input class="rating-input" id="rating-input" type="text" value="${item.rating}" name="rating-input" size="1" maxlength="1"><label class="rating-input-label" for="rating-input">/5</label></form>
+  <form aria-label="edit rating" class="rating-input-form">
+  <input class="rating-input" id="rating-input" type="text" value="${item.rating}" name="rating-input" size="1" maxlength="1"><label class="rating-input-label" for="rating-input">/5</label></form>
   </div>
   </div>
   <form class="description-form">

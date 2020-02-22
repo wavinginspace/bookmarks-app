@@ -163,6 +163,7 @@ a:focus {
 
 .bookmark-rating-expanded {
   display: flex;
+  justify-content: center;
   margin-top: 0.18rem;
 }
 
@@ -349,10 +350,13 @@ input[type='number']::-webkit-outer-spin-button {
 .rating-input-form {
   margin-bottom: 0.1rem;
   background: var(--bookmark);
+  margin-left: 0.7rem;
 }
 
 .rating-input-label {
   font-weight: 500;
+  margin: 0;
+  padding: 0;
 }
 
 #new-bookmark-title,
@@ -385,7 +389,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .rated {
-  margin: 0.2rem 0.7rem 0 0;
+  margin: 0.2rem 0 0 0;
 }
 
 .link-button {
@@ -531,13 +535,13 @@ option:checked {
   }
 
   .bookmark-rating {
-    display: none;
+    // display: none;
   }
 
   .rating-input {
     font-size: 14px;
     margin: 0;
-    margin-right: -.4rem;
+    padding: 0;
   }
 
   .filtertop {
@@ -622,7 +626,7 @@ option:checked {
   }
 
   .bookmark-rating-expanded {
-    display: block;
+    display: inline-block;
   }
 
   .bookmark-title-expanded {
