@@ -537,6 +537,7 @@ option:checked {
   .rating-input {
     font-size: 14px;
     margin: 0;
+    margin-right: -.4rem;
   }
 
   .filtertop {
