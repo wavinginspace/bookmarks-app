@@ -1,193 +1,193 @@
 :root {
-	--submit-light: #77ffd4;
-	--submit-full: #25ffba;
-	--info-full: #ffdc4f;
-	--info-light: #ffe26d;
-	--background: #ffdcdc;
-	--bookmark: #cee8ff;
-	--outline: #222;
-	--link: #0000ff;
-	--error: #fa2b2b;
-	--delete: #e7f6ff;
-	--placeholder: #bdb1ff;
+  --submit-light: #77ffd4;
+  --submit-full: #25ffba;
+  --info-full: #ffdc4f;
+  --info-light: #ffe26d;
+  --background: #ffdcdc;
+  --bookmark: #cee8ff;
+  --outline: #222;
+  --link: #0000ff;
+  --error: #fa2b2b;
+  --delete: #e7f6ff;
+  --placeholder: #bdb1ff;
 }
 
 body {
-	font-size: 16px;
-	font-family: 'Roboto Mono', monospace;
-	background-color: var(--background);
-	color: var(--outline);
-	font-weight: 500;
+  font-size: 16px;
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--background);
+  color: var(--outline);
+  font-weight: 500;
 }
 
 header {
-	margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 section {
-	text-align: center;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
-	font-size: 56px;
-	margin-bottom: 1rem;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	cursor: pointer;
-	text-align: center;
+  font-size: 56px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+  text-align: center;
 }
 
 input[placeholder] {
-	text-align: center;
+  text-align: center;
 }
 
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 li {
-	cursor: pointer;
-	margin: 0 auto;
+  cursor: pointer;
+  margin: 0 auto;
 }
 
 a {
-	text-decoration: none;
-	color: var(--link);
+  text-decoration: none;
+  color: var(--link);
 }
 
 textarea {
-	font-size: 16px;
+  font-size: 16px;
 }
 
-input[type=text],
+input[type='text'],
 textarea {
-	display: inline-block;
+  display: inline-block;
 }
 
 a:hover,
 a:focus {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
-	padding: 3rem;
-	text-align: center;
-	// border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 3rem;
+  text-align: center;
+  // border: 1px solid red;
 }
 
 .filter-message {
-	display: block;
-	margin-bottom: 2rem;
+  display: block;
+  margin-bottom: 2rem;
 }
 
 .bookmarks-list-section {
-	margin: 0 auto;
-	padding: 1rem;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	position: relative;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
 }
 
 .bookmark {
-	display: flex;
-	justify-content: space-between;
-	min-width: 420px;
-	max-width: 100%;
-	text-align: center;
-	padding: 1rem;
-	margin: 0 auto .5rem;
-	background-color: var(--delete);
-	border: 2px solid var(--outline);
-	border-radius: 5px;
-	position: relative;
-	transition: background .2s;
+  display: flex;
+  justify-content: space-between;
+  min-width: 420px;
+  max-width: 100%;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 auto 0.5rem;
+  background-color: var(--delete);
+  border: 2px solid var(--outline);
+  border-radius: 5px;
+  position: relative;
+  transition: background 0.2s;
 }
 
 .bookmark.expanded {
-	background: var(--bookmark);
+  background: var(--bookmark);
 }
 
 .bookmark:hover,
 .bookmark:focus {
-	background: var(--bookmark);
+  background: var(--bookmark);
 }
 
 .bookmark-rating {
-	font-weight: bold;
-	margin-left: 2rem;
+  font-weight: bold;
+  margin-left: 2rem;
 }
 
 .initial-view-buttons {
-	display: flex;
-	// max-width: 400px;
-	margin: 0 auto .8rem;
-	padding: 1rem;
-	// position: relative;
+  display: flex;
+  // max-width: 400px;
+  margin: 0 auto 0.8rem;
+  padding: 1rem;
+  // position: relative;
 }
 
 .bookmark-title {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 .bookmark-img {
-	position: relative;
-	margin: 0 auto;
+  position: relative;
+  margin: 0 auto;
 }
 
 .expanded {
-	max-width: 400px;
-	max-height: 300px;
-	height: 200px;
+  max-width: 400px;
+  max-height: 300px;
+  height: 200px;
 }
 
 .title-rating-expanded {
-	display: flex;
-	justify-content: space-between;
-	padding: 0 1rem;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  align-items: center;
 }
 
 .bookmark-title-expanded,
 .bookmark-rating-expanded {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 .bookmark-rating-expanded {
-	display: flex;
-	margin-top: .18rem;
+  display: flex;
+  margin-top: 0.18rem;
 }
 
 .bookmark-title-expanded {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .delete-bookmark {
-	display: block;
-	max-width: 100px;
-	margin: 0 auto;
-	background-color: #fff;
+  display: block;
+  max-width: 100px;
+  margin: 0 auto;
+  background-color: #fff;
 }
 
 .description-edit {
-	outline: none;
-	background: var(--bookmark);
-	font-family: 'Roboto Mono', monospace;
-	font-size: 16px;
-	font-weight: 400;
-	text-align: center;
-	border: none;
-	word-wrap: break-word;
-	word-break: break-all;
-	max-height: 50px;
+  outline: none;
+  background: var(--bookmark);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-height: 50px;
 }
 
 .add-new-button,
@@ -198,250 +198,264 @@ a:focus {
 .return-button,
 .error-return,
 .ratinglabel {
-	display: block;
-	border: 2px solid var(--outline);
-	font-family: 'Roboto Mono', monospace;
-	border-radius: 5px;
-	padding: .8rem 1rem;
-	margin: 0 auto;
-	text-decoration: none;
-	color: var(--outline);
-	font-size: 1rem;
-	font-weight: 500;
-	text-align: center;
-	transition: transform .5s ease;
-	cursor: pointer;
-	-webkit-appearance: none;
-	-moz-appearance: none;
+  display: block;
+  border: 2px solid var(--outline);
+  font-family: 'Roboto Mono', monospace;
+  border-radius: 5px;
+  padding: 0.8rem 1rem;
+  margin: 0 auto;
+  text-decoration: none;
+  color: var(--outline);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .ratinglabel {
-	margin: 1rem .5rem;
+  margin: 1rem 0.5rem;
 }
 
 .ratinglabel:hover {
-	background: var(--info-full);
+  background: var(--info-full);
 }
 
 .ratinglabel:checked {
-	background: var(--info-full);
+  background: var(--info-full);
 }
 
 .delete-bookmark {
-	font-size: .8rem;
-	width: 100%;
-	max-width: 100px;
-	transition: background-color 0.2s, color .2s;
-	padding: .4rem .8rem;
+  font-size: 0.8rem;
+  width: 100%;
+  max-width: 100px;
+  transition: background-color 0.2s, color 0.2s;
+  padding: 0.4rem 0.8rem;
 }
 
 .delete-bookmark:hover,
 .delete-bookmark:focus {
-	background-color: var(--error);
-	color: var(--delete);
+  background-color: var(--error);
+  color: var(--delete);
 }
 
 .return-button {
-	display: block;
-	font-size: .8rem;
-	padding: 1rem 0;
-	width: 100%;
-	max-width: 250px;
-	transition: background .2s;
-	background: #fff;
+  display: block;
+  font-size: 0.8rem;
+  padding: 1rem 0;
+  width: 100%;
+  max-width: 250px;
+  transition: background 0.2s;
+  background: #fff;
 }
 
 .return-button:hover,
 .return-button:focus {
-	background: var(--info-full);
+  background: var(--info-full);
 }
 
 .add-new-button {
-	background: var(--submit-light);
-	margin-right: 1rem;
-	transition: background .2s;
+  background: var(--submit-light);
+  margin-right: 1rem;
+  transition: background 0.2s;
 }
 
 .add-new-button:hover,
 .add-new-button:focus {
-	background-color: var(--submit-full);
+  background-color: var(--submit-full);
 }
 
 #filter-dropdown {
-	background: var(--info-light);
-	text-align: center;
-	margin-left: 1rem;
-	transition: background .2s;
+  background: var(--info-light);
+  text-align: center;
+  margin-left: 1rem;
+  transition: background 0.2s;
 }
 
 #filter-dropdown option {
-	text-align: center;
+  text-align: center;
 }
 
 #filter-dropdown:hover,
 #filter-dropdown:focus {
-	background: var(--info-full);
+  background: var(--info-full);
 }
 
 select {
-	text-align-last: center;
+  text-align-last: center;
 }
 
 /* ADD NEW BOOKMARK VIEW */
 
 .add-bookmark-view {
-	display: flex;
-	justify-content: center;
-	text-align: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 #add-new-bookmark-form {
-	display: flex;
-	flex-direction: column;
-	max-width: 400px;
-	width: 100%;
-	margin: 0 auto;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .new-bookmark-label {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .new-bookmark-input {
-	margin: 0 auto 2rem;
-	min-width: 200px;
-	max-width: 300px;
-	width: 100%;
-	background: var(--bookmark);
+  margin: 0 auto 2rem;
+  min-width: 200px;
+  max-width: 300px;
+  width: 100%;
+  background: var(--bookmark);
 }
 
 #new-bookmark-title,
 #new-bookmark-url,
 #new-bookmark-description {
-	min-width: 250px;
+  min-width: 250px;
 }
 
 .rating-input {
-	background: var(--bookmark);
-	color: #222;
-	font-family: 'Roboto Mono', monospace;
-	font-size: 16px;
-	border: none;
-	font-weight: 500;
-	padding: 0;
-	margin: 0 -.5rem 0 0;
+  background: var(--bookmark);
+  color: #222;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  border: none;
+  font-weight: 500;
+  padding: 0;
+  margin: 0 -0.5rem 0 0;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.rating {
+  width: 20px;
+  padding: 0.1rem;
+  background: var(--bookmark);
+  margin: 0 auto 1rem;
 }
 
 .rating-input-form {
-	margin-bottom: .1rem;
+  margin-bottom: 0.1rem;
+  background: var(--bookmark);
 }
 
 .rating-input-label {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 #new-bookmark-title,
 #new-bookmark-url {
-	height: 1.5rem;
-	font-size: .8rem;
+  height: 1.5rem;
+  font-size: 0.8rem;
 }
 
 #new-bookmark-title,
 #new-bookmark-url,
 #new-bookmark-description {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 ::placeholder {
-	color: var(--placeholder);
+  color: var(--placeholder);
 }
 
 .bookmark.expanded {
-	flex-direction: column;
-	max-width: 400px;
-	margin: 0 auto 1rem;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto 1rem;
 }
 
 .expanded-title-rating {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .rated {
-	margin: .2rem .7rem 0 0;
+  margin: 0.2rem 0.7rem 0 0;
 }
 
 .link-button {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .description {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .add-new-bookmark-button {
-	background: var(--submit-light);
-	margin-bottom: 2rem;
-	transition: background-color .2s;
+  background: var(--submit-light);
+  margin-bottom: 2rem;
+  transition: background-color 0.2s;
 }
 
 .add-new-bookmark-button:hover,
 .add-new-bookmark-button:focus {
-	background: var(--submit-full);
+  background: var(--submit-full);
 }
 
 .add-new-bookmark-button::after {
-	content: " ";
-	box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.5);
-	opacity: 0; /* hide the hover shadow */
-	transition: all 0.3s ease-in-out;
+  content: ' ';
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.5);
+  opacity: 0; /* hide the hover shadow */
+  transition: all 0.3s ease-in-out;
 }
 
 .add-new-bookmark-button:hover::after {
-	opacity: 1;
+  opacity: 1;
 }
 
 .new-bookmark-rating {
-	display: block;
-	margin: 0 auto 2rem;
-	background: var(--info-full);
-	height: 40px;
-	overflow: hidden;
-	padding-bottom: 2.2rem;
+  display: block;
+  margin: 0 auto 2rem;
+  background: var(--info-full);
+  height: 40px;
+  overflow: hidden;
+  padding-bottom: 2.2rem;
 }
 
 #new-bookmark-rating option {
-	font-size: 1.2em;
-	text-align: center;
-	padding: 2px;
-	display: inline-block;
-	cursor: pointer;
-	border-radius: 5px;
-	margin-right: 8px;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 2px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 8px;
 }
 
 option:hover,
 option:focus,
 option:active,
 option:checked {
-	background: linear-gradient(#2f82ff, #2fffbd);
+  background: linear-gradient(#2f82ff, #2fffbd);
 }
 
 #new-bookmark-rating option:last-child {
-	margin-right: 0;
+  margin-right: 0;
 }
 
 .checkbox-container {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .checkbox-container input {
-	display: none;
+  display: none;
 }
 
 // .ratinglabel {
@@ -457,187 +471,187 @@ option:checked {
 /* ERROR SELECTORS */
 
 .error-message {
-	font-size: 1.5rem;
-	color: var(--error);
-	font-style: italic;
-	margin-bottom: 3rem;
+  font-size: 1.5rem;
+  color: var(--error);
+  font-style: italic;
+  margin-bottom: 3rem;
 }
 
 .error-view {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 480px) {
-	body {
-		font-size: 14px;
-	}
+  body {
+    font-size: 14px;
+  }
 
-	.container {
-		padding: 2rem 1.2rem 2rem;
-	}
+  .container {
+    padding: 2rem 1.2rem 2rem;
+  }
 
-	#new-bookmark-title,
-	#new-bookmark-url {
-		// margin: 0 2rem 2rem auto;
-		position: relative;
-		top: 1rem;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
+  #new-bookmark-title,
+  #new-bookmark-url {
+    // margin: 0 2rem 2rem auto;
+    position: relative;
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-	textarea {
-		position: relative;
-		top: 3.5rem;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
+  textarea {
+    position: relative;
+    top: 3.5rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-	.new-bookmark-label {
-		position: relative;
-	}
+  .new-bookmark-label {
+    position: relative;
+  }
 
-	h1 {
-		font-size: 34px;
-		margin-bottom: -.5rem;
-		margin-top: 1.5rem;
-	}
+  h1 {
+    font-size: 34px;
+    margin-bottom: -0.5rem;
+    margin-top: 1.5rem;
+  }
 
-	.add-new-button {
-		margin-bottom: 1rem;
-	}
+  .add-new-button {
+    margin-bottom: 1rem;
+  }
 
-	section.initial-view-buttons {
-		margin-bottom: 1rem;
-	}
+  section.initial-view-buttons {
+    margin-bottom: 1rem;
+  }
 
-	.bookmarks-list-section {
-		padding: .5rem;
-		margin: 0 auto;
-	}
+  .bookmarks-list-section {
+    padding: 0.5rem;
+    margin: 0 auto;
+  }
 
-	.bookmark {
-		padding: .9rem;
-		min-width: 180px;
-		max-width: 80%;
-		font-size: 14px;
-	}
+  .bookmark {
+    padding: 0.9rem;
+    min-width: 180px;
+    max-width: 80%;
+    font-size: 14px;
+  }
 
-	.bookmark-rating {
-		display: none;
-	}
+  .bookmark-rating {
+    display: none;
+  }
 
-	.rating-input {
-		font-size: 14px;
-		margin: 0;
-	}
+  .rating-input {
+    font-size: 14px;
+    margin: 0;
+  }
 
-	.filtertop {
-		width: 100%;
-		text-align: center;
-		margin: 0 auto;
-		position: absolute;
-		left: 50%;
-	}
+  .filtertop {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+  }
 }
 
 @media (min-width: 400px) and (max-width: 480px) {
-	h1 {
-		font-size: 40px;
-	}
+  h1 {
+    font-size: 40px;
+  }
 }
 
 @media (min-width: 480px) and (max-width: 540px) {
-	h1 {
-		font-size: 48px;
-		margin-bottom: 0;
-	}
+  h1 {
+    font-size: 48px;
+    margin-bottom: 0;
+  }
 
-	.add-new-button,
-	#filter-dropdown {
-		padding: .8rem 1.6rem;
-		position: relative;
-		margin: .5rem auto .8rem;
-		display: block;
-		text-align: center;
-		width: 285px;
-		max-width: 100%;
-	}
+  .add-new-button,
+  #filter-dropdown {
+    padding: 0.8rem 1.6rem;
+    position: relative;
+    margin: 0.5rem auto 0.8rem;
+    display: block;
+    text-align: center;
+    width: 285px;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 540px) {
-	.initial-view-buttons {
-		margin: 0 auto 1rem;
-		display: block;
-		position: relative;
-		padding: 1rem;
-	}
+  .initial-view-buttons {
+    margin: 0 auto 1rem;
+    display: block;
+    position: relative;
+    padding: 1rem;
+  }
 
-	.add-new-button,
-	#filter-dropdown {
-		padding: .8rem 1.6rem;
-		position: relative;
-		margin: .8rem auto;
-		display: block;
-		text-align: center;
-		width: 250px;
-		max-width: 100%;
-	}
+  .add-new-button,
+  #filter-dropdown {
+    padding: 0.8rem 1.6rem;
+    position: relative;
+    margin: 0.8rem auto;
+    display: block;
+    text-align: center;
+    width: 250px;
+    max-width: 100%;
+  }
 
-	.bookmark {
-		min-width: 220px;
-	}
+  .bookmark {
+    min-width: 220px;
+  }
 
-	.bookmark-title {
-		margin: 0 auto;
-	}
+  .bookmark-title {
+    margin: 0 auto;
+  }
 
-	.bookmark-rating {
-		display: none;
-	}
+  .bookmark-rating {
+    display: none;
+  }
 
-	.bookmark-rating-expanded {
-		display: block;
-	}
+  .bookmark-rating-expanded {
+    display: block;
+  }
 
-	.bookmark-title-expanded {
-		font-weight: bold;
-	}
+  .bookmark-title-expanded {
+    font-weight: bold;
+  }
 
-	.title-rating-expanded {
-		display: flex;
-	}
+  .title-rating-expanded {
+    display: flex;
+  }
 
-	.rated {
-		display: none;
-	}
+  .rated {
+    display: none;
+  }
 
-	.expanded {
-		height: 160px;
-	}
+  .expanded {
+    height: 160px;
+  }
 }
 
 @media (min-width: 540px) and (max-width: 590px) {
-	.add-new-button,
-	#filter-dropdown {
-		padding: .6rem 1.2rem;
-		margin-bottom: 0;
-	}
+  .add-new-button,
+  #filter-dropdown {
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 0;
+  }
 
-	.bookmark-title {
-		text-align: left;
-		margin: 0 auto 0 0;
-	}
+  .bookmark-title {
+    text-align: left;
+    margin: 0 auto 0 0;
+  }
 
-	.bookmark {
-		min-width: 350px;
-	}
+  .bookmark {
+    min-width: 350px;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-	select,
-	textarea,
-	input {
-		font-size: 16px;
-	}
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }

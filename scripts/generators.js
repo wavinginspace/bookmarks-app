@@ -143,14 +143,9 @@ const generateAddBookmarkView = function() {
     <label aria-label="new bookmark url" class="new-bookmark-label" for="new-bookmark-url"> Enter bookmark url: </label>
     <input class="new-bookmark-input" type="text" name="url" placeholder="https://www.newbookmark.com" id="new-bookmark-url" required>
 
-    <label aria-label="new-bookmark-rating" class="new-bookmark-label" for="new-bookmark-rating">Add bookmark rating:</label>
-    <select class="new-bookmark-rating" name="add-rating" id="new-bookmark-rating" multiple required>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    </select>
+    <label aria-label="new-bookmark-rating" class="new-bookmark-label" for="new-bookmark-rating">Add bookmark rating (1-5):</label>
+
+    <input type="number" class="rating" size="3" min="1" max="5" name="url" placeholder="3" id="new-bookmark-rating" required>
 
     <label aria-label="new bookmark description" class="new-bookmark-label" for="new-bookmark-description"> Add description:</label>
     <textarea cols="20" rows="5" class="new-bookmark-input" type="text" name="description" id="new-bookmark-description" required></textarea>
