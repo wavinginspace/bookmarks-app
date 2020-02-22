@@ -13,7 +13,7 @@ const findById = function (id) {
 
 const addItem = function (bookmark) {
   bookmark.expanded = false;
-  this.bookmarkList.push(bookmark);
+  this.bookmarkList.unshift(bookmark);
 };
 
 const findAndDelete = function (id) {
