@@ -147,9 +147,9 @@ const handleUrlInput = function(url) {
   // if user enters www.google.com or just google.com, will fix input to full address.
   if (string) {
     if (!~string.indexOf('http') && ~string.indexOf('www')) {
-      string = 'https://' + string;
+      string = 'http://' + string;
     } else if (!~string.indexOf('http') && !~string.indexOf('www')) {
-      string = 'https://www.' + string;
+      string = 'http://www.' + string;
     }
   }
   return string;
