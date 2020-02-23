@@ -31,4 +31,4 @@ function watch() {
 // exports.style = style;
 exports.watch = watch;
 
-// ENTER gulp watch in console to run!!!!
+// ENTER gulp watch in console to run!!!!!
